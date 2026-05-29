@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PMES 2026 • Plataforma de Estudos IDECAN</title>
+    <title>PMES 2026 • Estudos IDECAN</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
-
         body {
             background: #F1F5F9;
             color: #1E293B;
             display: flex;
             min-height: 100vh;
         }
-
-        /* MENU LATERAL */
         .sidebar {
-            width: 280px;
+            width: 260px;
             background: #FFFFFF;
             border-right: 1px solid #E2E8F0;
             display: flex;
@@ -29,392 +26,154 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.02);
         }
-
         .logo-area {
-            padding: 28px 24px;
+            padding: 24px 20px;
             border-bottom: 1px solid #E2E8F0;
         }
-
         .logo-icon {
             background: #2563EB;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             color: white;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
-
-        .logo-text h2 {
-            font-size: 18px;
-            color: #0F172A;
-            font-weight: 600;
-        }
-
-        .logo-text p {
-            font-size: 12px;
-            color: #64748B;
-            margin-top: 4px;
-        }
-
-        .nav-menu {
-            flex: 1;
-            padding: 20px 16px;
-        }
-
+        .logo-text h2 { font-size: 18px; color: #0F172A; }
+        .logo-text p { font-size: 11px; color: #64748B; }
+        .nav-menu { flex: 1; padding: 20px 12px; }
         .nav-item {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 16px;
-            border-radius: 12px;
+            gap: 12px;
+            padding: 10px 16px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s;
             color: #475569;
             font-weight: 500;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
-
-        .nav-item:hover {
-            background: #F1F5F9;
-            color: #1E293B;
-        }
-
-        .nav-item.active {
-            background: #2563EB;
-            color: white;
-        }
-
-        /* CONTEÚDO PRINCIPAL */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 32px 40px;
-            min-height: 100vh;
-        }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.25s ease;
-        }
-
-        .page.active-page {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* CARDS */
+        .nav-item:hover { background: #F1F5F9; }
+        .nav-item.active { background: #2563EB; color: white; }
+        .main-content { flex: 1; margin-left: 260px; padding: 28px 36px; }
+        .page { display: none; animation: fadeIn 0.25s ease; }
+        .page.active-page { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .card {
             background: #FFFFFF;
-            border-radius: 24px;
-            padding: 28px;
+            border-radius: 20px;
+            padding: 24px;
             margin-bottom: 24px;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .card-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #0F172A;
-        }
-
-        /* SEMANAS */
-        .weeks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
-        }
-
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+        .card-title { font-size: 20px; font-weight: 700; color: #0F172A; }
+        .weeks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
         .week-card {
             background: #F8FAFC;
-            border-radius: 18px;
-            padding: 22px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
             cursor: pointer;
             border: 1px solid #E2E8F0;
             transition: all 0.2s;
         }
-
-        .week-card:hover {
-            border-color: #2563EB;
-            transform: translateY(-3px);
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .week-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2563EB;
-        }
-
-        .week-title {
-            font-weight: 600;
-            margin: 10px 0 6px;
-        }
-
-        .week-status {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 8px;
-        }
-
+        .week-card:hover { border-color: #2563EB; transform: translateY(-2px); background: white; }
+        .week-number { font-size: 26px; font-weight: 700; color: #2563EB; }
+        .week-status { font-size: 11px; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px; }
         .status-completed { background: #DCFCE7; color: #166534; }
         .status-pending { background: #F1F5F9; color: #64748B; }
-
-        /* DIAS */
-        .days-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
+        .days-container { display: flex; flex-direction: column; gap: 10px; }
         .day-item {
             background: #F8FAFC;
             border-radius: 14px;
-            padding: 16px 20px;
+            padding: 14px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
             border-left: 4px solid #CBD5E1;
-            transition: all 0.2s;
         }
-
-        .day-item:hover {
-            background: #F1F5F9;
-            transform: translateX(4px);
-        }
-
-        .day-item.completed {
-            border-left-color: #10B981;
-            background: #F0FDF4;
-        }
-
-        .day-name {
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .day-topic {
-            font-size: 13px;
-            color: #64748B;
-            margin-top: 4px;
-        }
-
-        /* TEORIA */
+        .day-item:hover { background: #F1F5F9; transform: translateX(4px); }
+        .day-item.completed { border-left-color: #10B981; background: #F0FDF4; }
+        .day-name { font-weight: 700; }
+        .day-topic { font-size: 12px; color: #64748B; margin-top: 2px; }
         .theory-content {
             background: #F8FAFC;
-            border-radius: 20px;
-            padding: 28px;
-            margin-bottom: 28px;
-            line-height: 1.8;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            line-height: 1.7;
             border: 1px solid #E2E8F0;
         }
-
-        .theory-content h3 {
-            color: #1E40AF;
-            margin: 24px 0 12px 0;
-            font-size: 18px;
-        }
-
+        .theory-content h3 { color: #1E40AF; margin: 20px 0 10px 0; }
         .theory-content h3:first-child { margin-top: 0; }
-        .theory-content h4 { margin: 16px 0 8px; color: #2563EB; }
-
-        .theory-content ul, .theory-content ol {
-            margin-left: 28px;
-            margin-top: 8px;
-            margin-bottom: 16px;
-        }
-
-        .theory-content li {
-            margin: 8px 0;
-        }
-
-        /* QUESTÕES */
+        .theory-content ul, .theory-content ol { margin-left: 24px; margin-bottom: 16px; }
         .question-card {
             background: #FFFFFF;
-            border-radius: 18px;
-            padding: 22px;
-            margin-bottom: 20px;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 18px;
             border: 1px solid #E2E8F0;
-            transition: box-shadow 0.2s;
         }
-
-        .question-card:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .alternatives {
-            margin: 18px 0 0 24px;
-        }
-
+        .alternatives { margin: 16px 0 0 24px; }
         .alt {
-            padding: 10px 16px;
-            margin: 8px 0;
-            border-radius: 10px;
+            padding: 8px 14px;
+            margin: 6px 0;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.2s;
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
         }
-
         .alt:hover { background: #EFF6FF; }
         .alt.selected { background: #DBEAFE; border-color: #2563EB; }
         .alt.correct { background: #DCFCE7; border-color: #10B981; }
         .alt.wrong { background: #FEE2E2; border-color: #EF4444; }
-
-        /* FILTROS */
-        .filters {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 28px;
-        }
-
+        .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
         .filter-btn {
             background: #F1F5F9;
-            padding: 8px 22px;
-            border-radius: 40px;
+            padding: 6px 18px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s;
+            font-size: 12px;
         }
-
-        .filter-btn.active {
-            background: #2563EB;
-            color: white;
-        }
-
-        .select-input {
-            background: #F8FAFC;
-            padding: 10px 16px;
-            border-radius: 12px;
-            border: 1px solid #E2E8F0;
-            font-size: 14px;
-            outline: none;
-            cursor: pointer;
-        }
-
-        /* DASHBOARD */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
-            margin-bottom: 28px;
-        }
-
-        .stat-card {
-            background: #F8FAFC;
-            border-radius: 18px;
-            padding: 22px;
-            text-align: center;
-            border: 1px solid #E2E8F0;
-        }
-
-        .stat-value {
-            font-size: 36px;
-            font-weight: 800;
-            color: #2563EB;
-        }
-
-        .progress-bar-container {
-            background: #E2E8F0;
-            border-radius: 12px;
-            height: 10px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: #10B981;
-            height: 100%;
-            border-radius: 12px;
-            width: 0%;
-        }
-
-        /* BOTÕES */
+        .filter-btn.active { background: #2563EB; color: white; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: #F8FAFC; border-radius: 16px; padding: 18px; text-align: center; }
+        .stat-value { font-size: 32px; font-weight: 800; color: #2563EB; }
+        .progress-bar-container { background: #E2E8F0; border-radius: 10px; height: 8px; overflow: hidden; }
+        .progress-fill { background: #10B981; height: 100%; width: 0%; }
         .btn {
             background: #2563EB;
             border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
+            padding: 10px 24px;
+            border-radius: 30px;
             color: white;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
-            font-size: 14px;
         }
-
-        .btn-secondary {
-            background: #F1F5F9;
-            color: #1E293B;
-        }
-
-        .btn-secondary:hover {
-            background: #E2E8F0;
-        }
-
-        .back-btn {
-            background: none;
-            border: none;
-            color: #2563EB;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* TAF */
+        .btn-secondary { background: #F1F5F9; color: #1E293B; }
+        .back-btn { background: none; border: none; color: #2563EB; cursor: pointer; font-weight: 600; }
         .taf-day {
             background: #F8FAFC;
-            border-radius: 14px;
-            padding: 14px 18px;
-            margin-bottom: 10px;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             cursor: pointer;
             border: 1px solid #E2E8F0;
         }
-
-        .taf-day.completed {
-            background: #F0FDF4;
-            border-left: 4px solid #10B981;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #64748B;
-        }
-
+        .taf-day.completed { background: #F0FDF4; border-left: 4px solid #10B981; }
+        .loading { text-align: center; padding: 40px; color: #64748B; }
         @media (max-width: 768px) {
-            .sidebar { width: 70px; padding: 16px 8px; }
+            .sidebar { width: 70px; }
             .logo-text, .nav-item span:last-child { display: none; }
-            .main-content { margin-left: 70px; padding: 20px; }
+            .main-content { margin-left: 70px; padding: 16px; }
         }
     </style>
 </head>
@@ -453,7 +212,7 @@
         <div class="card" id="daysContainer" style="display: none;">
             <div class="card-header">
                 <h3 id="selectedWeekTitle" style="font-size: 18px;">Semana</h3>
-                <button class="back-btn" id="backToWeeksBtn">← Voltar para semanas</button>
+                <button class="back-btn" id="backToWeeksBtn">← Voltar</button>
             </div>
             <div class="days-container" id="daysList"></div>
         </div>
@@ -463,7 +222,7 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title" id="conteudoTitle">📖 Conteúdo</h2>
-                <button class="back-btn" id="backToCronogramaBtn">← Voltar ao Cronograma</button>
+                <button class="back-btn" id="backToCronogramaBtn">← Voltar</button>
             </div>
             <div id="conteudoBody"></div>
         </div>
@@ -475,22 +234,14 @@
                 <h2 class="card-title">⚔️ Banco de Questões IDECAN</h2>
                 <div style="color:#64748B;">Total: <span id="totalQuestoesCount">0</span> questões</div>
             </div>
-            <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
-                <select id="filtroMateria" class="select-input">
-                    <option value="todas">📌 Todas as matérias</option>
-                </select>
-                <button class="btn btn-secondary" onclick="filtrarQuestoes()">Filtrar</button>
-            </div>
+            <div class="filters" id="filtersList"></div>
             <div id="questoesList"></div>
         </div>
     </div>
 
     <div id="simulado" class="page" style="display: none;">
         <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">🎯 Simulado Adaptativo</h2>
-                <div style="color:#64748B;">Baseado no seu progresso</div>
-            </div>
+            <h2 class="card-title">🎯 Simulado Adaptativo</h2>
             <button class="btn" id="gerarSimuladoBtn" style="margin-bottom: 20px;">▶️ Gerar Simulado</button>
             <div id="simuladoContainer"></div>
         </div>
@@ -507,7 +258,7 @@
         <div class="card">
             <h2 class="card-title">✍️ Oficina de Redação</h2>
             <p style="color:#64748B; margin-bottom: 16px;"><strong>Tema:</strong> O papel da Polícia Militar na garantia da segurança pública no Espírito Santo</p>
-            <textarea id="redacaoTexto" rows="18" style="width:100%; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:16px; padding:20px; font-size:14px; line-height:1.6;" placeholder="Digite sua redação dissertativa-argumentativa (20-30 linhas)..."></textarea>
+            <textarea id="redacaoTexto" rows="18" style="width:100%; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:16px; padding:20px; font-size:14px;" placeholder="Digite sua redação dissertativa-argumentativa (20-30 linhas)..."></textarea>
             <button class="btn" id="corrigirRedacaoBtn" style="margin-top:16px;">📝 Corrigir Redação</button>
             <div id="redacaoFeedback" style="margin-top:20px;"></div>
         </div>
@@ -538,6 +289,7 @@
     async function carregarDados() {
         try {
             const response = await fetch('dados.json');
+            if (!response.ok) throw new Error('Arquivo dados.json não encontrado');
             dados = await response.json();
             document.getElementById('loading').style.display = 'none';
             document.getElementById('cronograma').style.display = 'block';
@@ -548,19 +300,29 @@
             renderTAF();
             popularFiltros();
         } catch (error) {
-            document.getElementById('loading').innerHTML = '❌ Erro ao carregar dados. Verifique se o arquivo "dados.json" está na mesma pasta.';
+            document.getElementById('loading').innerHTML = `
+                <div style="background:#FEE2E2; padding:20px; border-radius:16px;">
+                    <strong>❌ Erro ao carregar dados.</strong><br><br>
+                    Verifique se o arquivo <strong style="color:#DC2626;">dados.json</strong> está na mesma pasta que este arquivo.<br><br>
+                    <span style="font-size:13px;">📁 Estrutura correta:<br>
+                    Sua_Pasta/<br>
+                    &nbsp;&nbsp;├── index.html<br>
+                    &nbsp;&nbsp;└── dados.json</span>
+                </div>
+            `;
             console.error(error);
         }
     }
 
     function popularFiltros() {
         const materias = [...new Set(dados.questoes.map(q => q.materia))];
-        const select = document.getElementById('filtroMateria');
-        select.innerHTML = '<option value="todas">📌 Todas as matérias</option>';
+        const filtersDiv = document.getElementById('filtersList');
+        filtersDiv.innerHTML = '<div class="filter-btn active" onclick="filtrarQuestoes(\'todas\')">📌 Todas</div>';
         materias.forEach(m => {
-            select.innerHTML += `<option value="${m}">📖 ${m.charAt(0).toUpperCase() + m.slice(1)}</option>`;
+            const nome = { portugues: '📖 Português', rlm: '🧮 RLM', historia: '📜 História', geografia: '🌎 Geografia' }[m] || m;
+            filtersDiv.innerHTML += `<div class="filter-btn" onclick="filtrarQuestoes('${m}')">${nome}</div>`;
         });
-        filtrarQuestoes();
+        filtrarQuestoes('todas');
     }
 
     function renderSemanas() {
@@ -568,8 +330,8 @@
         container.innerHTML = dados.semanas.map(semana => `
             <div class="week-card" onclick="selectWeek(${semana.numero})">
                 <div class="week-number">Semana ${semana.numero}</div>
-                <div class="week-title">${semana.titulo}</div>
-                <div style="font-size:12px; color:#64748B;">${semana.periodo}</div>
+                <div style="margin: 6px 0; font-size:13px; font-weight:500;">${semana.titulo}</div>
+                <div style="font-size:11px; color:#64748B;">${semana.periodo}</div>
                 <div class="week-status ${progresso.semanasCompletas.includes(semana.numero) ? 'status-completed' : 'status-pending'}">
                     ${progresso.semanasCompletas.includes(semana.numero) ? '✅ Concluída' : '⏳ Em andamento'}
                 </div>
@@ -593,13 +355,12 @@
                 <div class="day-item ${isCompleted ? 'completed' : ''}" onclick="loadContent('${contentKey}')">
                     <div>
                         <div class="day-name">${diasNomes[i]}</div>
-                        <div class="day-topic">${conteudo ? conteudo.titulo : "Conteúdo em breve"}</div>
+                        <div class="day-topic">${conteudo ? conteudo.titulo : "📌 Conteúdo em breve"}</div>
                     </div>
                     ${isCompleted ? '<div style="color:#10B981;">✅</div>' : '<div style="color:#94A3B8;">➡️</div>'}
                 </div>
             `;
         }
-        
         html += `<div class="day-item"><div><div class="day-name">Sábado</div><div class="day-topic">📺 Videoaulas Estratégia + Redação</div></div><div>📺</div></div>`;
         html += `<div class="day-item"><div><div class="day-name">Domingo</div><div class="day-topic">🙏 Descanso / Revisão leve</div></div><div>🙏</div></div>`;
         
@@ -610,10 +371,7 @@
 
     window.loadContent = function(contentKey) {
         const conteudo = dados.conteudos[contentKey];
-        if (!conteudo) {
-            alert("Conteúdo em desenvolvimento. Em breve disponível!");
-            return;
-        }
+        if (!conteudo) { alert("Conteúdo em desenvolvimento. Em breve disponível!"); return; }
         
         document.getElementById("conteudoTitle").innerHTML = `📖 ${conteudo.titulo}`;
         
@@ -670,9 +428,7 @@
     };
 
     window.marcarDiaCompleto = function(contentKey) {
-        if (!progresso.diasCompletos.includes(contentKey)) {
-            progresso.diasCompletos.push(contentKey);
-        }
+        if (!progresso.diasCompletos.includes(contentKey)) progresso.diasCompletos.push(contentKey);
         
         const semanaNum = parseInt(contentKey.split("_")[0]);
         const diasDaSemana = ["segunda", "terca", "quarta", "quinta", "sexta"];
@@ -684,10 +440,7 @@
                 break;
             }
         }
-        
-        if (todosCompletos && !progresso.semanasCompletas.includes(semanaNum)) {
-            progresso.semanasCompletas.push(semanaNum);
-        }
+        if (todosCompletos && !progresso.semanasCompletas.includes(semanaNum)) progresso.semanasCompletas.push(semanaNum);
         
         localStorage.setItem("pmes_progresso", JSON.stringify(progresso));
         atualizarDashboard();
@@ -699,10 +452,8 @@
         renderSemanas();
     };
 
-    function filtrarQuestoes() {
-        const materia = document.getElementById("filtroMateria").value;
+    function filtrarQuestoes(materia) {
         const filtradas = materia === "todas" ? dados.questoes : dados.questoes.filter(q => q.materia === materia);
-        
         document.getElementById("totalQuestoesCount").innerText = dados.questoes.length;
         const container = document.getElementById("questoesList");
         container.innerHTML = filtradas.map(q => {
@@ -710,7 +461,7 @@
             return `
                 <div class="question-card">
                     <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
-                        <span style="background:#E2E8F0; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;">${q.materia.toUpperCase()}</span>
+                        <span style="background:#E2E8F0; padding:4px 12px; border-radius:20px; font-size:11px;">${q.materia.toUpperCase()}</span>
                         ${isAcertada ? '<span style="color:#10B981;">✅ Acertada</span>' : '<span style="color:#94A3B8;">⭕ Não respondida</span>'}
                     </div>
                     <p><strong>${q.texto}</strong></p>
@@ -724,6 +475,8 @@
                 </div>
             `;
         }).join("");
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (event && event.target) event.target.classList.add('active');
     }
     
     window.checkBancoAnswer = function(el, qId, letra, correta) {
@@ -746,23 +499,17 @@
     };
 
     document.getElementById("gerarSimuladoBtn")?.addEventListener("click", () => {
-        const lidos = progresso.diasCompletos;
-        if (lidos.length === 0) {
+        if (progresso.diasCompletos.length === 0) {
             document.getElementById("simuladoContainer").innerHTML = `<p style="color:#EF4444;">⚠️ Complete pelo menos um conteúdo no Cronograma primeiro!</p>`;
             return;
         }
         
         let questoesSimulado = [];
-        lidos.forEach(key => {
+        progresso.diasCompletos.forEach(key => {
             const conteudo = dados.conteudos[key];
-            if (conteudo && conteudo.questoes) {
-                questoesSimulado.push(...conteudo.questoes);
-            }
+            if (conteudo && conteudo.questoes) questoesSimulado.push(...conteudo.questoes);
         });
-        
-        if (questoesSimulado.length === 0) {
-            questoesSimulado = dados.questoes.slice(0, 20);
-        }
+        if (questoesSimulado.length === 0) questoesSimulado = dados.questoes.slice(0, 20);
         
         const container = document.getElementById("simuladoContainer");
         container.innerHTML = `<h3 style="margin-bottom:16px;">🎯 Simulado (${questoesSimulado.length} questões)</h3>`;
@@ -786,7 +533,6 @@
         const feedbackDiv = document.getElementById(feedbackId);
         const container = el.parentElement;
         container.querySelectorAll('.alt').forEach(alt => alt.classList.remove('selected', 'correct', 'wrong'));
-        
         if (letra === correta) {
             el.classList.add('selected', 'correct');
             feedbackDiv.innerHTML = `<span style="color:#10B981;">✅ Correta!</span>`;
@@ -813,7 +559,7 @@
             </div>
             <div class="progress-bar-container"><div class="progress-fill" style="width: ${percentual}%;"></div></div>
             <p style="margin-top: 14px;">${percentual}% do banco de questões respondido</p>
-            <p style="margin-top: 20px; background:#F8FAFC; padding:16px; border-radius:16px;"><strong>🎯 Meta:</strong> 48 pontos para garantir vaga | ${notaEstimada >= 48 ? '✅ Você está acima da média! Continue assim.' : '⚠️ Foco nos conteúdos pendentes!'}</p>
+            <p style="margin-top: 20px; background:#F8FAFC; padding:16px; border-radius:16px;"><strong>🎯 Meta:</strong> 48 pontos para garantir vaga | ${notaEstimada >= 48 ? '✅ Você está acima da média!' : '⚠️ Foco nos conteúdos pendentes!'}</p>
         `;
     }
 
@@ -821,12 +567,10 @@
         const texto = document.getElementById("redacaoTexto").value;
         let nota = 40;
         let feedbacks = [];
-        
         const linhas = texto.split("\n").filter(l => l.trim().length > 30).length;
         if (linhas < 20) { nota -= 12; feedbacks.push("❌ Menos de 20 linhas efetivas"); }
         if (texto.length < 400) { nota -= 8; feedbacks.push("❌ Desenvolvimento textual insuficiente"); }
         if (!texto.toLowerCase().includes("polícia")) { nota -= 10; feedbacks.push("❌ Possível desvio do tema"); }
-        
         nota = Math.max(0, nota);
         document.getElementById("redacaoFeedback").innerHTML = `
             <div style="background:#F8FAFC; padding:24px; border-radius:20px;">
@@ -840,55 +584,8 @@
     function renderTAF() {
         const diasTAF = ["🏃 Segunda (Corrida)", "💪 Terça (Barra)", "🏃 Quarta (Corrida)", "💪 Quinta (Barra+Abdominal)", "⚡ Sexta (Agilidade)", "🔥 Sábado (Simulado TAF)"];
         const container = document.getElementById("tafChecklist");
-        if(!container) return;
+        if (!container) return;
         container.innerHTML = diasTAF.map(dia => `
             <div class="taf-day ${tafChecklist[dia] ? 'completed' : ''}" onclick="toggleTAF('${dia}')">
                 <span>${dia}</span>
-                <span>${tafChecklist[dia] ? '✅' : '⭕'}</span>
-            </div>
-        `).join("");
-    }
-    
-    window.toggleTAF = function(dia) {
-        tafChecklist[dia] = !tafChecklist[dia];
-        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
-        renderTAF();
-    };
-    
-    document.getElementById("resetTAFBtn")?.addEventListener("click", () => {
-        Object.keys(tafChecklist).forEach(k => tafChecklist[k] = false);
-        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
-        renderTAF();
-    });
-
-    // Navegação entre abas
-    document.querySelectorAll('.nav-item').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const pageId = btn.getAttribute('data-page');
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.getElementById(pageId).style.display = 'block';
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            if (pageId === 'questoes' && dados) filtrarQuestoes();
-            if (pageId === 'dashboard') atualizarDashboard();
-            if (pageId === 'taf') renderTAF();
-        });
-    });
-    
-    document.getElementById("backToWeeksBtn")?.addEventListener("click", () => {
-        document.getElementById("weeksGrid").style.display = "grid";
-        document.getElementById("daysContainer").style.display = "none";
-        renderSemanas();
-    });
-    
-    document.getElementById("backToCronogramaBtn")?.addEventListener("click", () => {
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById('cronograma').style.display = 'block';
-        document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.nav-item[data-page="cronograma"]').classList.add('active');
-    });
-
-    carregarDados();
-</script>
-</body>
-</html>
+                <span>${tafChecklist[dia] ? '✅
