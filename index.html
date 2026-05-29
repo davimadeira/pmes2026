@@ -588,4 +588,50 @@
         container.innerHTML = diasTAF.map(dia => `
             <div class="taf-day ${tafChecklist[dia] ? 'completed' : ''}" onclick="toggleTAF('${dia}')">
                 <span>${dia}</span>
-                <span>${tafChecklist[dia] ? '✅
+                <span>${tafChecklist[dia] ? '✅' : '⭕'}</span>
+            </div>
+        `).join("");
+    }
+    
+    window.toggleTAF = function(dia) {
+        tafChecklist[dia] = !tafChecklist[dia];
+        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
+        renderTAF();
+    };
+    
+    document.getElementById("resetTAFBtn")?.addEventListener("click", () => {
+        Object.keys(tafChecklist).forEach(k => tafChecklist[k] = false);
+        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
+        renderTAF();
+    });
+
+    document.querySelectorAll('.nav-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pageId = btn.getAttribute('data-page');
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(pageId).style.display = 'block';
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if (pageId === 'questoes' && dados) filtrarQuestoes('todas');
+            if (pageId === 'dashboard') atualizarDashboard();
+            if (pageId === 'taf') renderTAF();
+        });
+    });
+    
+    document.getElementById("backToWeeksBtn")?.addEventListener("click", () => {
+        document.getElementById("weeksGrid").style.display = "grid";
+        document.getElementById("daysContainer").style.display = "none";
+        renderSemanas();
+    });
+    
+    document.getElementById("backToCronogramaBtn")?.addEventListener("click", () => {
+        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+        document.getElementById('cronograma').style.display = 'block';
+        document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.nav-item[data-page="cronograma"]').classList.add('active');
+    });
+
+    carregarDados();
+</script>
+</body>
+</html>
