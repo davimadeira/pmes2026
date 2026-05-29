@@ -5,176 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PMES 2026 • Estudos IDECAN</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-        body {
-            background: #F1F5F9;
-            color: #1E293B;
-            display: flex;
-            min-height: 100vh;
-        }
-        .sidebar {
-            width: 260px;
-            background: #FFFFFF;
-            border-right: 1px solid #E2E8F0;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .logo-area {
-            padding: 24px 20px;
-            border-bottom: 1px solid #E2E8F0;
-        }
-        .logo-icon {
-            background: #2563EB;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
-            margin-bottom: 12px;
-        }
-        .logo-text h2 { font-size: 18px; color: #0F172A; }
-        .logo-text p { font-size: 11px; color: #64748B; }
-        .nav-menu { flex: 1; padding: 20px 12px; }
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            cursor: pointer;
-            color: #475569;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .nav-item:hover { background: #F1F5F9; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; }
+        body { background: #F4F6F9; color: #1E293B; display: flex; min-height: 100vh; }
+        
+        .sidebar { width: 270px; background: #FFFFFF; border-right: 1px solid #E2E8F0; display: flex; flex-direction: column; position: fixed; height: 100vh; overflow-y: auto; box-shadow: 2px 0 12px rgba(0,0,0,0.02); }
+        .logo-area { padding: 28px 24px; border-bottom: 1px solid #E2E8F0; }
+        .logo-icon { background: #2563EB; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; margin-bottom: 14px; }
+        .logo-text h2 { font-size: 18px; color: #0F172A; font-weight: 600; }
+        .logo-text p { font-size: 12px; color: #64748B; margin-top: 4px; }
+        .nav-menu { flex: 1; padding: 24px 16px; }
+        .nav-item { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 12px; cursor: pointer; transition: all 0.2s; color: #475569; font-weight: 500; margin-bottom: 6px; }
+        .nav-item:hover { background: #F1F5F9; color: #1E293B; }
         .nav-item.active { background: #2563EB; color: white; }
-        .main-content { flex: 1; margin-left: 260px; padding: 28px 36px; }
+
+        .main-content { flex: 1; margin-left: 270px; padding: 32px 40px; min-height: 100vh; }
         .page { display: none; animation: fadeIn 0.25s ease; }
         .page.active-page { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 24px;
-            border: 1px solid #E2E8F0;
-        }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
-        .card-title { font-size: 20px; font-weight: 700; color: #0F172A; }
-        .weeks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-        .week-card {
-            background: #F8FAFC;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            border: 1px solid #E2E8F0;
-            transition: all 0.2s;
-        }
-        .week-card:hover { border-color: #2563EB; transform: translateY(-2px); background: white; }
-        .week-number { font-size: 26px; font-weight: 700; color: #2563EB; }
-        .week-status { font-size: 11px; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
+
+        .card { background: white; border-radius: 24px; padding: 28px; margin-bottom: 24px; border: 1px solid #E2E8F0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+        .card-title { font-size: 22px; font-weight: 700; color: #0F172A; }
+
+        .weeks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+        .week-card { background: #F8FAFC; border-radius: 18px; padding: 22px; text-align: center; cursor: pointer; border: 1px solid #E2E8F0; transition: all 0.2s; }
+        .week-card:hover { border-color: #2563EB; transform: translateY(-3px); background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .week-number { font-size: 28px; font-weight: 700; color: #2563EB; }
+        .week-title { font-weight: 600; margin: 10px 0 6px; font-size: 14px; }
+        .week-status { font-size: 12px; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px; }
         .status-completed { background: #DCFCE7; color: #166534; }
         .status-pending { background: #F1F5F9; color: #64748B; }
-        .days-container { display: flex; flex-direction: column; gap: 10px; }
-        .day-item {
-            background: #F8FAFC;
-            border-radius: 14px;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            border-left: 4px solid #CBD5E1;
-        }
+
+        .days-container { display: flex; flex-direction: column; gap: 12px; }
+        .day-item { background: #F8FAFC; border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-left: 4px solid #CBD5E1; transition: all 0.2s; }
         .day-item:hover { background: #F1F5F9; transform: translateX(4px); }
         .day-item.completed { border-left-color: #10B981; background: #F0FDF4; }
-        .day-name { font-weight: 700; }
-        .day-topic { font-size: 12px; color: #64748B; margin-top: 2px; }
-        .theory-content {
-            background: #F8FAFC;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
-            line-height: 1.7;
-            border: 1px solid #E2E8F0;
-        }
-        .theory-content h3 { color: #1E40AF; margin: 20px 0 10px 0; }
+        .day-name { font-weight: 700; font-size: 16px; }
+        .day-topic { font-size: 13px; color: #64748B; margin-top: 4px; }
+        .badge-tempo { background: #10B98120; color: #34D399; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+
+        .theory-content { background: #F8FAFC; border-radius: 20px; padding: 28px; margin-bottom: 28px; line-height: 1.8; border: 1px solid #E2E8F0; }
+        .theory-content h3 { color: #1E40AF; margin: 24px 0 12px 0; font-size: 18px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; }
         .theory-content h3:first-child { margin-top: 0; }
-        .theory-content ul, .theory-content ol { margin-left: 24px; margin-bottom: 16px; }
-        .question-card {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 18px;
-            border: 1px solid #E2E8F0;
-        }
-        .alternatives { margin: 16px 0 0 24px; }
-        .alt {
-            padding: 8px 14px;
-            margin: 6px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-        }
+        .theory-content h4 { margin: 16px 0 8px; color: #2563EB; font-size: 15px; }
+        .theory-content ul { margin-left: 24px; margin-bottom: 16px; }
+        .theory-content li { margin: 6px 0; }
+
+        .question-card { background: #FFFFFF; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #E2E8F0; }
+        .alternativas { margin: 16px 0 0 24px; }
+        .alt { padding: 10px 16px; margin: 8px 0; border-radius: 10px; cursor: pointer; transition: all 0.2s; background: #F8FAFC; border: 1px solid #E2E8F0; font-weight: 500; }
         .alt:hover { background: #EFF6FF; }
         .alt.selected { background: #DBEAFE; border-color: #2563EB; }
-        .alt.correct { background: #DCFCE7; border-color: #10B981; }
-        .alt.wrong { background: #FEE2E2; border-color: #EF4444; }
-        .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
-        .filter-btn {
-            background: #F1F5F9;
-            padding: 6px 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        .filter-btn.active { background: #2563EB; color: white; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-card { background: #F8FAFC; border-radius: 16px; padding: 18px; text-align: center; }
-        .stat-value { font-size: 32px; font-weight: 800; color: #2563EB; }
-        .progress-bar-container { background: #E2E8F0; border-radius: 10px; height: 8px; overflow: hidden; }
-        .progress-fill { background: #10B981; height: 100%; width: 0%; }
-        .btn {
-            background: #2563EB;
-            border: none;
-            padding: 10px 24px;
-            border-radius: 30px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .btn-secondary { background: #F1F5F9; color: #1E293B; }
-        .back-btn { background: none; border: none; color: #2563EB; cursor: pointer; font-weight: 600; }
-        .taf-day {
-            background: #F8FAFC;
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            border: 1px solid #E2E8F0;
-        }
+        .alt.correct { background: #DCFCE7; border-color: #10B981; color: #166534; }
+        .alt.wrong { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
+
+        .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+        .select-filter { background: #FFFFFF; color: #1E293B; padding: 10px 16px; border-radius: 8px; border: 1px solid #CBD5E1; font-weight: 500; outline: none; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-bottom: 28px; }
+        .stat-card { background: #F8FAFC; border-radius: 18px; padding: 22px; text-align: center; border: 1px solid #E2E8F0; }
+        .stat-value { font-size: 36px; font-weight: 800; color: #2563EB; }
+        .stat-label { color: #64748B; font-size: 13px; margin-top: 8px; font-weight: 500; }
+        .progress-bar-container { background: #E2E8F0; border-radius: 10px; height: 10px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { background: #10B981; height: 100%; border-radius: 10px; width: 0%; transition: width 0.3s; }
+        
+        .taf-day { background: #F8FAFC; border-radius: 12px; padding: 14px 18px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #E2E8F0; }
         .taf-day.completed { background: #F0FDF4; border-left: 4px solid #10B981; }
-        .loading { text-align: center; padding: 40px; color: #64748B; }
-        @media (max-width: 768px) {
-            .sidebar { width: 70px; }
-            .logo-text, .nav-item span:last-child { display: none; }
-            .main-content { margin-left: 70px; padding: 16px; }
-        }
+        .btn { background: #2563EB; border: none; padding: 12px 28px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; }
+        .btn:hover { background: #1D4ED8; transform: translateY(-1px); }
+        .btn-secondary { background: #F1F5F9; color: #1E293B; border: 1px solid #E2E8F0; }
+        .back-btn { background: none; border: none; color: #2563EB; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 6px; }
     </style>
 </head>
 <body>
@@ -184,14 +84,13 @@
         <div class="logo-icon">⚡</div>
         <div class="logo-text">
             <h2>PMES 2026</h2>
-            <p>foco IDECAN</p>
+            <p>Foco Real IDECAN</p>
         </div>
     </div>
     <div class="nav-menu">
         <div class="nav-item active" data-page="cronograma">📅 Cronograma</div>
-        <div class="nav-item" data-page="conteudo">📚 Conteúdo</div>
-        <div class="nav-item" data-page="questoes">⚔️ Questões</div>
-        <div class="nav-item" data-page="simulado">🎯 Simulado</div>
+        <div class="nav-item" data-page="conteudo" onclick="carregarMenuMaterias()">📚 Conteúdo</div>
+        <div class="nav-item" data-page="questoes" onclick="inicializarAbaQuestoesBanco()">⚔️ Questões</div>
         <div class="nav-item" data-page="dashboard">📊 Dashboard</div>
         <div class="nav-item" data-page="redacao">✍️ Redação</div>
         <div class="nav-item" data-page="taf">💪 TAF</div>
@@ -199,439 +98,412 @@
 </div>
 
 <div class="main-content">
-    <div id="loading" class="loading">📥 Carregando dados do concurso...</div>
-
-    <div id="cronograma" class="page" style="display: none;">
-        <div class="card">
+    <div id="cronograma" class="page active-page">
+        <div class="card" id="weeksSection">
             <div class="card-header">
-                <h2 class="card-title">📅 Cronograma de Estudos</h2>
-                <div style="color:#64748B;">🎯 Prova: 16/08/2026</div>
+                <h2 class="card-title">📅 Cronograma de Estudos Linear (10 Semanas)</h2>
+                <div style="color:#64748B; font-weight: 500;">🎯 Prova: 16/08/2026</div>
             </div>
             <div class="weeks-grid" id="weeksGrid"></div>
         </div>
         <div class="card" id="daysContainer" style="display: none;">
             <div class="card-header">
-                <h3 id="selectedWeekTitle" style="font-size: 18px;">Semana</h3>
-                <button class="back-btn" id="backToWeeksBtn">← Voltar</button>
+                <h3 id="selectedWeekTitle">Semana</h3>
+                <button class="back-btn" onclick="voltarParaSemanas()">← Voltar para semanas</button>
             </div>
             <div class="days-container" id="daysList"></div>
         </div>
     </div>
 
-    <div id="conteudo" class="page" style="display: none;">
-        <div class="card">
+    <div id="conteudo" class="page">
+        <div class="card" id="menuMaterias">
+            <h2 class="card-title">📚 Índice Geral do Edital</h2>
+            <div class="weeks-grid" style="margin-top:20px;">
+                <div class="week-card" onclick="listarTopicosMateria('portugues')"><div class="week-number" style="font-size:22px;">📖 Português</div></div>
+                <div class="week-card" onclick="listarTopicosMateria('rlm')"><div class="week-number" style="font-size:22px;">🧮 RLM</div></div>
+                <div class="week-card" onclick="listarTopicosMateria('historia')"><div class="week-number" style="font-size:22px;">📜 História</div></div>
+                <div class="week-card" onclick="listarTopicosMateria('geografia')"><div class="week-number" style="font-size:22px;">🌎 Geografia</div></div>
+            </div>
+        </div>
+        <div class="card" id="listaTopicosSeletor" style="display:none;">
+            <button class="back-btn" onclick="voltarMenuMaterias()" style="margin-bottom:15px;">← Voltar para Matérias</button>
+            <h2 class="card-title" id="materiaFiltroTitulo">Topicos</h2>
+            <div class="days-container" id="containerTopicosLinhas" style="margin-top:15px;"></div>
+        </div>
+        <div class="card" id="exibicaoTeoriaCard" style="display: none;">
             <div class="card-header">
                 <h2 class="card-title" id="conteudoTitle">📖 Conteúdo</h2>
-                <button class="back-btn" id="backToCronogramaBtn">← Voltar</button>
+                <button class="back-btn" onclick="voltarParaFluxoOrigem()">← Voltar</button>
             </div>
             <div id="conteudoBody"></div>
+            <div id="questoesAreaTeoria" style="margin-top:25px;"></div>
+            <button class="btn" id="btnConcluirDiaAtivo" style="margin-top:25px; background:#10B981;">✅ Marcar Objetivo como Concluído</button>
         </div>
     </div>
 
-    <div id="questoes" class="page" style="display: none;">
+    <div id="questoes" class="page">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">⚔️ Banco de Questões IDECAN</h2>
-                <div style="color:#64748B;">Total: <span id="totalQuestoesCount">0</span> questões</div>
+                <h2 class="card-title">⚔️ Banco Geral de Questões</h2>
+                <div style="color:#64748B; font-weight:500;">Filtro Inteligente IDECAN</div>
             </div>
-            <div class="filters" id="filtersList"></div>
+            <div class="filters">
+                <select id="filtroMateria" class="select-filter" onchange="atualizarFiltroAssunto(this.value)">
+                    <option value="todas">Todas as Matérias</option>
+                    <option value="portugues">Língua Portuguesa</option>
+                    <option value="rlm">Raciocínio Lógico</option>
+                    <option value="historia">História</option>
+                    <option value="geografia">Geografia</option>
+                </select>
+                <select id="filtroAssunto" class="select-filter">
+                    <option value="todos">Todos os Assuntos</option>
+                </select>
+                <button class="btn" onclick="filtrarBancoGeral()">Filtrar Banco</button>
+            </div>
             <div id="questoesList"></div>
         </div>
     </div>
 
-    <div id="simulado" class="page" style="display: none;">
+    <div id="dashboard" class="page">
         <div class="card">
-            <h2 class="card-title">🎯 Simulado Adaptativo</h2>
-            <button class="btn" id="gerarSimuladoBtn" style="margin-bottom: 20px;">▶️ Gerar Simulado</button>
-            <div id="simuladoContainer"></div>
+            <h2 class="card-title">📊 Análise de Performance Real</h2>
+            <div id="dashboardStats" style="margin-top:20px;"></div>
         </div>
     </div>
 
-    <div id="dashboard" class="page" style="display: none;">
+    <div id="redacao" class="page">
         <div class="card">
-            <h2 class="card-title">📊 Meu Desempenho</h2>
-            <div id="dashboardStats"></div>
-        </div>
-    </div>
-
-    <div id="redacao" class="page" style="display: none;">
-        <div class="card">
-            <h2 class="card-title">✍️ Oficina de Redação</h2>
-            <p style="color:#64748B; margin-bottom: 16px;"><strong>Tema:</strong> O papel da Polícia Militar na garantia da segurança pública no Espírito Santo</p>
-            <textarea id="redacaoTexto" rows="18" style="width:100%; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:16px; padding:20px; font-size:14px;" placeholder="Digite sua redação dissertativa-argumentativa (20-30 linhas)..."></textarea>
-            <button class="btn" id="corrigirRedacaoBtn" style="margin-top:16px;">📝 Corrigir Redação</button>
+            <h2 class="card-title">✍️ Oficina de Redação Pós-Edital</h2>
+            <p style="color:#64748B; margin-bottom:16px;"><strong>Tema Proposto:</strong> O papel do policiamento comunitário ostensivo na redução dos índices de criminalidade urbana no Espírito Santo.</p>
+            <textarea id="redacaoTexto" rows="18" style="width:100%; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:16px; padding:20px; font-size:14px; line-height:1.6;" placeholder="Digite seu texto argumentativo (20 a 30 linhas)..."></textarea>
+            <button class="btn" onclick="corrigirRedacaoOficial()">📝 Corrigir Redação</button>
             <div id="redacaoFeedback" style="margin-top:20px;"></div>
         </div>
     </div>
 
-    <div id="taf" class="page" style="display: none;">
+    <div id="taf" class="page">
         <div class="card">
-            <h2 class="card-title">💪 Preparação Física (TAF)</h2>
-            <div class="stats-grid" id="tafIndices">
-                <div class="stat-card"><div class="stat-value">4</div><div class="stat-label">Flexão (H)</div></div>
-                <div class="stat-card"><div class="stat-value">1</div><div class="stat-label">Flexão (M)</div></div>
-                <div class="stat-card"><div class="stat-value">10,5s/11,5s</div><div class="stat-label">Agilidade</div></div>
-                <div class="stat-card"><div class="stat-value">12min/15min54s</div><div class="stat-label">Corrida 2400m</div></div>
-                <div class="stat-card"><div class="stat-value">35/30</div><div class="stat-label">Abdominal (1min)</div></div>
+            <h2 class="card-title">💪 Metas de Desempenho Físico (TAF)</h2>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-value">4</div><div class="stat-label">Barra Fixa (Masc)</div></div>
+                <div class="stat-card"><div class="stat-value">12min</div><div class="stat-label">Corrida 2400m (Masc)</div></div>
+                <div class="stat-card"><div class="stat-value">35 rep</div><div class="stat-label">Abdominal Remador</div></div>
             </div>
-            <h3 style="margin: 20px 0 12px;">📋 Checklist Semanal</h3>
+            <h3 style="margin:24px 0 12px 0;">📋 Checklist de Treinos da Semana</h3>
             <div id="tafChecklist"></div>
-            <button class="btn btn-secondary" id="resetTAFBtn" style="margin-top:16px;">Resetar Checklist</button>
         </div>
     </div>
 </div>
 
 <script>
-    let dados = null;
-    let progresso = JSON.parse(localStorage.getItem("pmes_progresso")) || { semanasCompletas: [], diasCompletos: [], questoesAcertadas: {} };
-    let tafChecklist = JSON.parse(localStorage.getItem("pmes_taf")) || {};
-
-    async function carregarDados() {
+    // Carregamento dinâmico do JSON simulado para evitar travar limites de memória
+    let bancoDados = null;
+    
+    // Função assíncrona que lê o banco separado sem congelar o navegador
+    async function inicializarApp() {
         try {
-            const response = await fetch('dados.json');
-            if (!response.ok) throw new Error('Arquivo dados.json não encontrado');
-            dados = await response.json();
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('cronograma').style.display = 'block';
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.getElementById('cronograma').style.display = 'block';
+            const resposta = await fetch('banco.json');
+            bancoDados = await resposta.json();
             renderSemanas();
-            atualizarDashboard();
             renderTAF();
-            popularFiltros();
-        } catch (error) {
-            document.getElementById('loading').innerHTML = `
-                <div style="background:#FEE2E2; padding:20px; border-radius:16px;">
-                    <strong>❌ Erro ao carregar dados.</strong><br><br>
-                    Verifique se o arquivo <strong style="color:#DC2626;">dados.json</strong> está na mesma pasta que este arquivo.<br><br>
-                    <span style="font-size:13px;">📁 Estrutura correta:<br>
-                    Sua_Pasta/<br>
-                    &nbsp;&nbsp;├── index.html<br>
-                    &nbsp;&nbsp;└── dados.json</span>
-                </div>
-            `;
-            console.error(error);
+        } catch (erro) {
+            console.error("Aguardando arquivo banco.json estar criado na mesma pasta.", erro);
         }
     }
 
-    function popularFiltros() {
-        const materias = [...new Set(dados.questoes.map(q => q.materia))];
-        const filtersDiv = document.getElementById('filtersList');
-        filtersDiv.innerHTML = '<div class="filter-btn active" onclick="filtrarQuestoes(\'todas\')">📌 Todas</div>';
-        materias.forEach(m => {
-            const nome = { portugues: '📖 Português', rlm: '🧮 RLM', historia: '📜 História', geografia: '🌎 Geografia' }[m] || m;
-            filtersDiv.innerHTML += `<div class="filter-btn" onclick="filtrarQuestoes('${m}')">${nome}</div>`;
-        });
-        filtrarQuestoes('todas');
-    }
+    let progresso = JSON.parse(localStorage.getItem("pmes_v9_save")) || { semanasCompletas: [], diasCompletos: [], acertos: {} };
+    let tafChecklist = JSON.parse(localStorage.getItem("pmes_v9_taf")) || {};
+    let origemNavegacao = 'cronograma';
+    let semanaAtivaGlobal = 1;
 
     function renderSemanas() {
-        const container = document.getElementById("weeksGrid");
-        container.innerHTML = dados.semanas.map(semana => `
-            <div class="week-card" onclick="selectWeek(${semana.numero})">
-                <div class="week-number">Semana ${semana.numero}</div>
-                <div style="margin: 6px 0; font-size:13px; font-weight:500;">${semana.titulo}</div>
-                <div style="font-size:11px; color:#64748B;">${semana.periodo}</div>
-                <div class="week-status ${progresso.semanasCompletas.includes(semana.numero) ? 'status-completed' : 'status-pending'}">
-                    ${progresso.semanasCompletas.includes(semana.numero) ? '✅ Concluída' : '⏳ Em andamento'}
-                </div>
-            </div>
-        `).join("");
-    }
-
-    window.selectWeek = function(numero) {
-        const semana = dados.semanas.find(s => s.numero === numero);
-        document.getElementById("selectedWeekTitle").innerHTML = `📌 ${semana.titulo} (${semana.periodo})`;
-        
-        const dias = ["segunda", "terca", "quarta", "quinta", "sexta"];
-        const diasNomes = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"];
-        
-        let html = "";
-        for (let i = 0; i < dias.length; i++) {
-            const contentKey = `${numero}_${dias[i]}`;
-            const conteudo = dados.conteudos[contentKey];
-            const isCompleted = progresso.diasCompletos.includes(contentKey);
-            html += `
-                <div class="day-item ${isCompleted ? 'completed' : ''}" onclick="loadContent('${contentKey}')">
-                    <div>
-                        <div class="day-name">${diasNomes[i]}</div>
-                        <div class="day-topic">${conteudo ? conteudo.titulo : "📌 Conteúdo em breve"}</div>
-                    </div>
-                    ${isCompleted ? '<div style="color:#10B981;">✅</div>' : '<div style="color:#94A3B8;">➡️</div>'}
-                </div>
-            `;
-        }
-        html += `<div class="day-item"><div><div class="day-name">Sábado</div><div class="day-topic">📺 Videoaulas Estratégia + Redação</div></div><div>📺</div></div>`;
-        html += `<div class="day-item"><div><div class="day-name">Domingo</div><div class="day-topic">🙏 Descanso / Revisão leve</div></div><div>🙏</div></div>`;
-        
-        document.getElementById("daysList").innerHTML = html;
-        document.getElementById("weeksGrid").style.display = "none";
-        document.getElementById("daysContainer").style.display = "block";
-    };
-
-    window.loadContent = function(contentKey) {
-        const conteudo = dados.conteudos[contentKey];
-        if (!conteudo) { alert("Conteúdo em desenvolvimento. Em breve disponível!"); return; }
-        
-        document.getElementById("conteudoTitle").innerHTML = `📖 ${conteudo.titulo}`;
-        
-        let questoesHtml = `<h3 style="margin: 24px 0 16px;">⚔️ Questões deste tópico (${conteudo.questoes.length})</h3>`;
-        for (let q of conteudo.questoes) {
-            const isAcertada = progresso.questoesAcertadas[q.id];
-            questoesHtml += `
-                <div class="question-card">
-                    <p><strong>${q.texto}</strong></p>
-                    <div class="alternatives">
-                        ${q.alt.map((altText, idx) => {
-                            const letra = String.fromCharCode(65 + idx);
-                            return `<div class="alt" onclick="checkAnswer(this, '${q.id}', '${letra}', '${q.correta}')">${altText}</div>`;
-                        }).join('')}
-                    </div>
-                    <div id="feedback-${q.id}" style="margin-top:8px;">${isAcertada ? '<span style="color:#10B981;">✅ Correta</span>' : ''}</div>
-                </div>
-            `;
-        }
-        
-        if (conteudo.questoes.length === 0) {
-            questoesHtml = `<p style="color:#64748B;">📌 Use o banco de questões para treinar este conteúdo!</p>`;
-        }
-        
-        document.getElementById("conteudoBody").innerHTML = `
-            <div class="theory-content">${conteudo.teoria}</div>
-            ${questoesHtml}
-            <div style="margin-top:24px;"><button class="btn" onclick="marcarDiaCompleto('${contentKey}')">✅ Marcar este dia como concluído</button></div>
-        `;
-        
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById('conteudo').style.display = 'block';
-        document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.nav-item[data-page="conteudo"]').classList.add('active');
-    };
-
-    window.checkAnswer = function(el, qId, letra, correta) {
-        const feedbackDiv = document.getElementById(`feedback-${qId}`);
-        const container = el.parentElement;
-        container.querySelectorAll('.alt').forEach(alt => alt.classList.remove('selected', 'correct', 'wrong'));
-        
-        if (letra === correta) {
-            el.classList.add('selected', 'correct');
-            feedbackDiv.innerHTML = `<span style="color:#10B981;">✅ Correta! Muito bem.</span>`;
-            if (!progresso.questoesAcertadas[qId]) {
-                progresso.questoesAcertadas[qId] = true;
-                localStorage.setItem("pmes_progresso", JSON.stringify(progresso));
-                atualizarDashboard();
-            }
-        } else {
-            el.classList.add('selected', 'wrong');
-            feedbackDiv.innerHTML = `<span style="color:#EF4444;">❌ Errada. Resposta correta: ${correta}.</span>`;
-        }
-    };
-
-    window.marcarDiaCompleto = function(contentKey) {
-        if (!progresso.diasCompletos.includes(contentKey)) progresso.diasCompletos.push(contentKey);
-        
-        const semanaNum = parseInt(contentKey.split("_")[0]);
-        const diasDaSemana = ["segunda", "terca", "quarta", "quinta", "sexta"];
-        let todosCompletos = true;
-        for (let dia of diasDaSemana) {
-            const key = `${semanaNum}_${dia}`;
-            if (dados.conteudos[key] && !progresso.diasCompletos.includes(key)) {
-                todosCompletos = false;
-                break;
-            }
-        }
-        if (todosCompletos && !progresso.semanasCompletas.includes(semanaNum)) progresso.semanasCompletas.push(semanaNum);
-        
-        localStorage.setItem("pmes_progresso", JSON.stringify(progresso));
-        atualizarDashboard();
-        
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById('cronograma').style.display = 'block';
-        document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.nav-item[data-page="cronograma"]').classList.add('active');
-        renderSemanas();
-    };
-
-    function filtrarQuestoes(materia) {
-        const filtradas = materia === "todas" ? dados.questoes : dados.questoes.filter(q => q.materia === materia);
-        document.getElementById("totalQuestoesCount").innerText = dados.questoes.length;
-        const container = document.getElementById("questoesList");
-        container.innerHTML = filtradas.map(q => {
-            const isAcertada = progresso.questoesAcertadas[q.id];
+        const grid = document.getElementById("weeksGrid");
+        if(!grid || !bancoDados) return;
+        grid.innerHTML = bancoDados.semanas.map(s => {
+            const completed = progresso.semanasCompletas.includes(s.numero);
             return `
-                <div class="question-card">
-                    <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
-                        <span style="background:#E2E8F0; padding:4px 12px; border-radius:20px; font-size:11px;">${q.materia.toUpperCase()}</span>
-                        ${isAcertada ? '<span style="color:#10B981;">✅ Acertada</span>' : '<span style="color:#94A3B8;">⭕ Não respondida</span>'}
+                <div class="week-card" onclick="abrirSemana(${s.numero})">
+                    <div class="week-number">Semana ${s.numero}</div>
+                    <div class="week-title">${s.titulo}</div>
+                    <div class="week-status ${completed ? 'status-completed' : 'status-pending'}">
+                        ${completed ? '✅ Concluída' : '⏳ Em Andamento'}
                     </div>
-                    <p><strong>${q.texto}</strong></p>
-                    <div class="alternatives">
-                        ${q.alt.map((altText, idx) => {
-                            const letra = String.fromCharCode(65 + idx);
-                            return `<div class="alt" onclick="checkBancoAnswer(this, '${q.id}', '${letra}', '${q.correta}')">${altText}</div>`;
-                        }).join('')}
-                    </div>
-                    <div id="banco-feedback-${q.id}" style="margin-top:8px;">${isAcertada ? '<span style="color:#10B981;">✅ Correta</span>' : ''}</div>
                 </div>
             `;
         }).join("");
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        if (event && event.target) event.target.classList.add('active');
     }
-    
-    window.checkBancoAnswer = function(el, qId, letra, correta) {
-        const feedbackDiv = document.getElementById(`banco-feedback-${qId}`);
-        const container = el.parentElement;
-        container.querySelectorAll('.alt').forEach(alt => alt.classList.remove('selected', 'correct', 'wrong'));
-        
-        if (letra === correta) {
-            el.classList.add('selected', 'correct');
-            feedbackDiv.innerHTML = `<span style="color:#10B981;">✅ Correta! Muito bem.</span>`;
-            if (!progresso.questoesAcertadas[qId]) {
-                progresso.questoesAcertadas[qId] = true;
-                localStorage.setItem("pmes_progresso", JSON.stringify(progresso));
-                atualizarDashboard();
-            }
-        } else {
-            el.classList.add('selected', 'wrong');
-            feedbackDiv.innerHTML = `<span style="color:#EF4444;">❌ Errada. Resposta correta: ${correta}.</span>`;
-        }
-    };
 
-    document.getElementById("gerarSimuladoBtn")?.addEventListener("click", () => {
-        if (progresso.diasCompletos.length === 0) {
-            document.getElementById("simuladoContainer").innerHTML = `<p style="color:#EF4444;">⚠️ Complete pelo menos um conteúdo no Cronograma primeiro!</p>`;
-            return;
-        }
+    window.abrirSemana = function(num) {
+        semanaAtivaGlobal = num;
+        const sem = bancoDados.semanas.find(s => s.numero === num);
+        document.getElementById("selectedWeekTitle").innerText = `📌 Semana ${num} — ${sem.titulo}`;
         
-        let questoesSimulado = [];
-        progresso.diasCompletos.forEach(key => {
-            const conteudo = dados.conteudos[key];
-            if (conteudo && conteudo.questoes) questoesSimulado.push(...conteudo.questoes);
-        });
-        if (questoesSimulado.length === 0) questoesSimulado = dados.questoes.slice(0, 20);
-        
-        const container = document.getElementById("simuladoContainer");
-        container.innerHTML = `<h3 style="margin-bottom:16px;">🎯 Simulado (${questoesSimulado.length} questões)</h3>`;
-        questoesSimulado.forEach((q, idx) => {
-            container.innerHTML += `
-                <div class="question-card">
-                    <p><strong>Questão ${idx+1}: ${q.texto}</strong></p>
-                    <div class="alternatives">
-                        ${q.alt.map((altText, i) => {
-                            const letra = String.fromCharCode(65 + i);
-                            return `<div class="alt" onclick="checkSimuladoAnswer(this, '${letra}', '${q.correta}', 'sim-feedback-${idx}')">${altText}</div>`;
-                        }).join('')}
+        const diasSemana = [
+            { label: "Segunda-Feira", key: "segunda" },
+            { label: "Terça-Feira", key: "terca" },
+            { label: "Quarta-Feira", key: "quarta" },
+            { label: "Quinta-Feira", key: "quinta" },
+            { label: "Sexta-Feira", key: "sexta" },
+            { label: "Sábado (Estudo Denso - 3h)", key: "sabado" }
+        ];
+
+        const daysList = document.getElementById("daysList");
+        daysList.innerHTML = diasSemana.map((d, idx) => {
+            const contentKey = `${num}_${d.key}`;
+            const alvo = bancoDados.conteudosPorDia[contentKey];
+            const concluido = progresso.diasCompletos.includes(contentKey);
+
+            return `
+                <div class="day-item ${concluido ? 'completed' : ''}" onclick="navegarParaFichaEstudo('${contentKey}', '${d.key}', ${num})">
+                    <div>
+                        <div class="day-name">${d.label}</div>
+                        <div class="day-topic">${alvo ? alvo.titulo : "🔴 Sábado: Assistir Videoaulas no Estratégia + Oficina Prática de Redação"}</div>
                     </div>
-                    <div id="sim-feedback-${idx}" style="margin-top:8px;"></div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <span class="badge-tempo">${d.key === 'sabado' ? '⏱️ 3h' : '⏱️ 45min'}</span>
+                        <span>${concluido ? '✅' : '⭕'}</span>
+                    </div>
                 </div>
             `;
-        });
-    });
-    
-    window.checkSimuladoAnswer = function(el, letra, correta, feedbackId) {
-        const feedbackDiv = document.getElementById(feedbackId);
-        const container = el.parentElement;
-        container.querySelectorAll('.alt').forEach(alt => alt.classList.remove('selected', 'correct', 'wrong'));
-        if (letra === correta) {
-            el.classList.add('selected', 'correct');
-            feedbackDiv.innerHTML = `<span style="color:#10B981;">✅ Correta!</span>`;
-        } else {
-            el.classList.add('selected', 'wrong');
-            feedbackDiv.innerHTML = `<span style="color:#EF4444;">❌ Errada. Resposta: ${correta}.</span>`;
-        }
-    };
+        }).join("");
 
-    function atualizarDashboard() {
-        const totalQuestoes = dados?.questoes?.length || 0;
-        const totalAcertos = Object.keys(progresso.questoesAcertadas).length;
-        const percentual = totalQuestoes > 0 ? Math.round((totalAcertos / totalQuestoes) * 100) : 0;
-        const semanasCompletas = progresso.semanasCompletas.length;
-        const diasCompletos = progresso.diasCompletos.length;
-        const notaEstimada = totalQuestoes > 0 ? Math.round((totalAcertos / totalQuestoes) * 80) : 0;
+        document.getElementById("weeksSection").style.display = "none";
+        document.getElementById("daysContainer").style.display = "block";
+    }
+
+    window.navegarParaFichaEstudo = function(contentKey, diaKey, numSemana) {
+        if(diaKey === 'sabado') {
+            alert("📺 Sábado é dia de vídeo longo no Estratégia Concursos e escrita da Redação na aba correspondente!");
+            return;
+        }
+        origemNavegacao = 'cronograma';
+        exibirFichaTeoriaEQuestoes(contentKey, numSemana);
+    }
+
+    function exibirFichaTeoriaEQuestoes(contentKey, numSemana = null) {
+        const alvo = bancoDados.conteudosPorDia[contentKey];
+        if(!alvo) {
+            alert("⏳ Tópico planejado e mapeado na esteira linear das próximas semanas do cronograma.");
+            return;
+        }
+
+        document.getElementById("conteudoTitle").innerText = alvo.titulo;
+        document.getElementById("conteudoBody").innerHTML = `<div class="theory-content">${alvo.teoria}</div>`;
+
+        const areaQ = document.getElementById("questoesAreaTeoria");
+        if(alvo.questoes && alvo.questoes.length > 0) {
+            areaQ.innerHTML = `<h3 style="margin-bottom:15px; color:#1E40AF;">⚔️ Exercícios de Fixação Obrigatórios (${alvo.questoes.length} Questões)</h3>` + 
+            alvo.questoes.map((q, idx) => {
+                const uid = `teoria_${contentKey}_${idx}`;
+                return renderizarEstruturaCardQuestao(q, uid, contentKey, idx);
+            }).join("");
+        } else {
+            areaQ.innerHTML = `<p style="color:#64748B;">Nenhum exercício embutido diretamente nesta aula.</p>`;
+        }
+
+        document.getElementById("btnConcluirDiaAtivo").onclick = () => {
+            if(!progresso.diasCompletos.includes(contentKey)) progresso.diasCompletos.push(contentKey);
+            localStorage.setItem("pmes_v9_save", JSON.stringify(progresso));
+            voltarParaFluxoOrigem();
+        };
+
+        document.getElementById("weeksSection").style.display = "none";
+        document.getElementById("daysContainer").style.display = "none";
+        document.getElementById("menuMaterias").style.display = "none";
+        document.getElementById("listaTopicosSeletor").style.display = "none";
+        document.getElementById("exibicaoTeoriaCard").style.display = "block";
+        mudarAbaVisualEstrita('conteudo');
+    }
+
+    function renderizarEstruturaCardQuestao(q, uid, contentKey, idx) {
+        const responds = progresso.acertos[`${contentKey}_${idx}`];
+        let stateClass = responds !== undefined ? (responds ? 'correct' : 'wrong') : '';
         
-        document.getElementById("dashboardStats").innerHTML = `
-            <div class="stats-grid">
-                <div class="stat-card"><div class="stat-value">${semanasCompletas}/${dados?.semanas?.length || 10}</div><div class="stat-label">Semanas</div></div>
-                <div class="stat-card"><div class="stat-value">${diasCompletos}</div><div class="stat-label">Dias</div></div>
-                <div class="stat-card"><div class="stat-value">${totalAcertos}/${totalQuestoes}</div><div class="stat-label">Questões</div></div>
-                <div class="stat-card"><div class="stat-value">${notaEstimada}/80</div><div class="stat-label">Nota Estimada</div></div>
+        return `
+            <div class="question-card" id="${uid}">
+                <p style="font-size:13px; color:#64748B; font-weight:600; margin-bottom:6px;">IDECAN — Código: ${q.id}</p>
+                <p><strong>${q.texto}</strong></p>
+                <div class="alternativas">
+                    ${q.alt.map(opcao => {
+                        const letra = opcao.charAt(0);
+                        let correctMark = (stateClass !== '' && letra === q.correta) ? 'correct' : '';
+                        return `<div class="alt ${correctMark}" onclick="validarGabaritoFicha(this, '${contentKey}', ${idx}, '${letra}', '${q.correta}', '${uid}')">${opcao}</div>`;
+                    }).join("")}
+                </div>
+                <div class="feedback-msg" style="margin-top:10px; font-weight:700;"></div>
             </div>
-            <div class="progress-bar-container"><div class="progress-fill" style="width: ${percentual}%;"></div></div>
-            <p style="margin-top: 14px;">${percentual}% do banco de questões respondido</p>
-            <p style="margin-top: 20px; background:#F8FAFC; padding:16px; border-radius:16px;"><strong>🎯 Meta:</strong> 48 pontos para garantir vaga | ${notaEstimada >= 48 ? '✅ Você está acima da média!' : '⚠️ Foco nos conteúdos pendentes!'}</p>
         `;
     }
 
-    document.getElementById("corrigirRedacaoBtn")?.addEventListener("click", () => {
-        const texto = document.getElementById("redacaoTexto").value;
-        let nota = 40;
-        let feedbacks = [];
-        const linhas = texto.split("\n").filter(l => l.trim().length > 30).length;
-        if (linhas < 20) { nota -= 12; feedbacks.push("❌ Menos de 20 linhas efetivas"); }
-        if (texto.length < 400) { nota -= 8; feedbacks.push("❌ Desenvolvimento textual insuficiente"); }
-        if (!texto.toLowerCase().includes("polícia")) { nota -= 10; feedbacks.push("❌ Possível desvio do tema"); }
-        nota = Math.max(0, nota);
-        document.getElementById("redacaoFeedback").innerHTML = `
-            <div style="background:#F8FAFC; padding:24px; border-radius:20px;">
-                <p><strong>📝 Nota simulada: ${nota}/40</strong> - ${nota >= 20 ? '✅ APROVADO' : '⚠️ REPROVADO'}</p>
-                <p><strong>Feedbacks:</strong> ${feedbacks.length ? feedbacks.join(", ") : "Parabéns! Redação dentro dos padrões IDECAN."}</p>
-                <p style="font-size:12px; color:#2563EB; margin-top:16px;">📌 Critérios: Formal (15pts) | Textual (12,5pts) | Técnico (12,5pts)</p>
-            </div>
-        `;
-    });
+    window.validarGabaritoFicha = function(elemento, contentKey, idx, letra, correta, uid) {
+        const card = document.getElementById(uid);
+        const msg = card.querySelector(".feedback-msg");
+        card.querySelectorAll(".alt").forEach(el => el.style.pointerEvents = "none");
+        
+        elemento.classList.add("selected");
+        const hash = `${contentKey}_${idx}`;
 
-    function renderTAF() {
-        const diasTAF = ["🏃 Segunda (Corrida)", "💪 Terça (Barra)", "🏃 Quarta (Corrida)", "💪 Quinta (Barra+Abdominal)", "⚡ Sexta (Agilidade)", "🔥 Sábado (Simulado TAF)"];
-        const container = document.getElementById("tafChecklist");
-        if (!container) return;
-        container.innerHTML = diasTAF.map(dia => `
-            <div class="taf-day ${tafChecklist[dia] ? 'completed' : ''}" onclick="toggleTAF('${dia}')">
-                <span>${dia}</span>
-                <span>${tafChecklist[dia] ? '✅' : '⭕'}</span>
+        if(letra === correta) {
+            elemento.classList.add("correct");
+            msg.innerHTML = `<span style="color:#10B981;">🎯 Resposta Correta!</span>`;
+            progresso.acertos[hash] = true;
+        } else {
+            elemento.classList.add("wrong");
+            msg.innerHTML = `<span style="color:#EF4444;">❌ Incorreto. Gabarito Oficial: Letra ${correta}.</span>`;
+            progresso.acertos[hash] = false;
+        }
+        localStorage.setItem("pmes_v9_save", JSON.stringify(progresso));
+    }
+
+    window.voltarParaFluxoOrigem = function() {
+        document.getElementById("exibicaoTeoriaCard").style.display = "none";
+        if(origemNavegacao === 'cronograma') {
+            document.getElementById("daysContainer").style.display = "block";
+            mudarAbaVisualEstrita('cronograma');
+            abrirSemana(semanaAtivaGlobal);
+        } else {
+            document.getElementById("listaTopicosSeletor").style.display = "block";
+            mudarAbaVisualEstrita('conteudo');
+        }
+    }
+
+    window.carregarMenuMaterias = function() {
+        document.getElementById("exibicaoTeoriaCard").style.display = "none";
+        document.getElementById("listaTopicosSeletor").style.display = "none";
+        document.getElementById("menuMaterias").style.display = "block";
+    }
+
+    window.listarTopicosMateria = function(materiaKey) {
+        document.getElementById("menuMaterias").style.display = "none";
+        const container = document.getElementById("containerTopicosLinhas");
+        document.getElementById("materiaFiltroTitulo").innerText = `Tópicos de ${materiaKey.toUpperCase()}`;
+
+        const filtrados = Object.entries(bancoDados.conteudosPorDia).filter(([k, v]) => v.materia === materiaKey);
+        container.innerHTML = filtrados.map(([k, v]) => `
+            <div class="topico-linha" onclick="origemNavegacao='conteudo'; exibirFichaTeoriaEQuestoes('${k}')">
+                <span>${v.titulo}</span>
+                <span class="badge-tempo" style="background:#E2E8F0; color:#1E293B;">Visualizar</span>
+            </div>
+        `).join("");
+
+        document.getElementById("listaTopicosSeletor").style.display = "block";
+    }
+
+    window.voltarMenuMaterias = function() {
+        document.getElementById("listaTopicosSeletor").style.display = "none";
+        document.getElementById("menuMaterias").style.display = "block";
+    }
+
+    const mapaAssuntosFiltro = {
+        portugues: [{ val: "interpretacao", txt: "Interpretação de Texto" }, { val: "conjuncoes", txt: "Conjunções" }, { val: "reescrita", txt: "Reescrita de Frases" }],
+        rlm: [{ val: "proposicoes", txt: "Proposições Lógicas" }, { val: "tabelas", txt: "Tabelas-Verdade" }],
+        historia: [{ val: "colonial", txt: "Brasil Colonial" }],
+        geografia: [{ val: "climas", txt: "Climatologia" }]
+    };
+
+    window.atualizarFiltroAssunto = function(mat) {
+        const combo = document.getElementById("filtroAssunto");
+        combo.innerHTML = `<option value="todos">Todos os Assuntos</option>`;
+        const lista = mapaAssuntosFiltro[mat] || [];
+        lista.forEach(a => combo.innerHTML += `<option value="${a.val}">${a.txt}</option>`);
+    }
+
+    window.inicializarAbaQuestoesBanco = function() {
+        document.getElementById("filtroMateria").value = "todas";
+        atualizarFiltroAssunto("todas");
+        filtrarBancoGeral();
+    }
+
+    window.filtrarBancoGeral = function() {
+        const mat = document.getElementById("filtroMateria").value;
+        const ass = document.getElementById("filtroAssunto").value;
+        const container = document.getElementById("questoesList");
+
+        let pool = [];
+        Object.keys(bancoDados.conteudosPorDia).forEach(k => {
+            const obj = bancoDados.conteudosPorDia[k];
+            if((mat === "todas" || obj.materia === mat) && (ass === "todos" || obj.assunto === ass)) {
+                obj.questoes.forEach((q, idx) => pool.push({ ...q, contentKey: k, idx: idx, materia: obj.materia }));
+            }
+        });
+
+        container.innerHTML = pool.map((q) => `
+            <div class="question-card" id="banco_${q.id}">
+                <p style="font-size:12px; color:#64748B; font-weight:600; margin-bottom:8px;">IDECAN • Matéria: ${q.materia.toUpperCase()}</p>
+                <p><strong>${q.texto}</strong></p>
+                <div class="alternativas">
+                    ${q.alt.map(o => `<div class="alt" onclick="validarGabaritoFicha(this, '${q.contentKey}', ${q.idx}, '${o.charAt(0)}', '${q.correta}', 'banco_${q.id}')">${o}</div>`).join("")}
+                </div>
+                <div class="feedback-msg" style="margin-top:10px; font-weight:700;"></div>
             </div>
         `).join("");
     }
-    
-    window.toggleTAF = function(dia) {
-        tafChecklist[dia] = !tafChecklist[dia];
-        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
-        renderTAF();
-    };
-    
-    document.getElementById("resetTAFBtn")?.addEventListener("click", () => {
-        Object.keys(tafChecklist).forEach(k => tafChecklist[k] = false);
-        localStorage.setItem("pmes_taf", JSON.stringify(tafChecklist));
-        renderTAF();
-    });
 
-    document.querySelectorAll('.nav-item').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const pageId = btn.getAttribute('data-page');
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.getElementById(pageId).style.display = 'block';
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            if (pageId === 'questoes' && dados) filtrarQuestoes('todas');
-            if (pageId === 'dashboard') atualizarDashboard();
-            if (pageId === 'taf') renderTAF();
+    window.atualizarDashboardMétricas = function() {
+        if(!bancoDados) return;
+        let totalAcertos = 0; let totalBanco = 0;
+        let mapaDisciplinas = { portugues: { acertos: 0, totais: 0 }, rlm: { acertos: 0, totais: 0 }, historia: { acertos: 0, totais: 0 }, geografia: { acertos: 0, totais: 0 } };
+
+        Object.keys(bancoDados.conteudosPorDia).forEach(k => {
+            const obj = bancoDados.conteudosPorDia[k];
+            totalBanco += obj.questoes.length;
+            mapaDisciplinas[obj.materia].totais += obj.questoes.length;
+            obj.questoes.forEach((q, idx) => {
+                const ac = progresso.acertos[`${k}_${idx}`];
+                if(ac !== undefined && ac) {
+                    totalAcertos++;
+                    mapaDisciplinas[obj.materia].acertos++;
+                }
+            });
         });
-    });
-    
-    document.getElementById("backToWeeksBtn")?.addEventListener("click", () => {
-        document.getElementById("weeksGrid").style.display = "grid";
-        document.getElementById("daysContainer").style.display = "none";
-        renderSemanas();
-    });
-    
-    document.getElementById("backToCronogramaBtn")?.addEventListener("click", () => {
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById('cronograma').style.display = 'block';
-        document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.nav-item[data-page="cronograma"]').classList.add('active');
-    });
 
-    carregarDados();
+        const perc = totalBanco > 0 ? Math.round((totalAcertos / totalBanco) * 100) : 0;
+        const notaEst = totalBanco > 0 ? Math.round((totalAcertos / totalBanco) * 80) : 0;
+
+        document.getElementById("dashboardStats").innerHTML = `
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-value">${progresso.semanasCompletas.length}/10</div><div class="stat-label">Semanas</div></div>
+                <div class="stat-card"><div class="stat-value">${progresso.diasCompletos.length}</div><div class="stat-label">Dias Concluídos</div></div>
+                <div class="stat-card"><div class="stat-value">${totalAcertos}/${totalBanco}</div><div class="stat-label">Acertos Banco</div></div>
+                <div class="stat-card"><div class="stat-value" style="color:#2563EB;">${notaEst}/80</div><div class="stat-label">Nota Estimada</div></div>
+            </div>
+            <div class="progress-bar-container"><div class="progress-fill" style="width:${perc}%;"></div></div>
+            <p style="font-size:13px; color:#64748B; margin-top:6px;">Aproveitamento total das questões do banco: ${perc}%</p>
+        `;
+    }
+
+    window.corrigirRedacaoOficial = function() {
+        const txt = document.getElementById("redacaoTexto").value;
+        const f = document.getElementById("redacaoFeedback");
+        if(txt.trim().length < 300) { f.innerHTML = `<span style="color:#EF4444; font-weight:600;">⚠️ Texto muito curto. Digite no mínimo 20 linhas completas.</span>`; return; }
+        let desvios = 0;
+        if(txt.includes("mas o") || txt.includes("porem o")) desvios++;
+        let nFormal = 15.0 - (desvios * 0.25); let total = nFormal + 12.5 + 12.5;
+        f.innerHTML = `<div style="background:#F8FAFC; padding:20px; border-radius:12px; border:1px solid #E2E8F0;"><h4>Espelho de Nota Simulado</h4><h2 style="color:#2563EB;">Nota: ${total.toFixed(2)} / 40,00</h2></div>`;
+    }
+
+    window.renderTAF = function() {
+        const treinos = ["🏃 Segunda (Corrida PACE)", "💪 Terça (Barra Fixa)", "🏃 Quarta (Corrida PACE)", "💪 Quinta (Barra+Abdominal)", "⚡ Sexta (Agilidade)"];
+        document.getElementById("tafChecklist").innerHTML = treinos.map(t => `
+            <div class="taf-day ${tafChecklist[t] ? 'completed' : ''}" onclick="toggleCheckTAF('${t}')">
+                <span>${t}</span><span>${tafChecklist[t] ? '✅ Concluído' : '⭕ Pendente'}</span>
+            </div>
+        `).join("");
+    }
+    window.toggleCheckTAF = function(t) { tafChecklist[t] = !tafChecklist[t]; localStorage.setItem("pmes_v8_taf", JSON.stringify(tafChecklist)); renderTAF(); }
+    document.getElementById("resetTAFBtn").onclick = () => { tafChecklist = {}; localStorage.setItem("pmes_v8_taf", JSON.stringify(tafChecklist)); renderTAF(); }
+
+    window.voltarParaSemanas = function() { document.getElementById("weeksSection").style.display = "block"; document.getElementById("daysContainer").style.display = "none"; renderSemanas(); }
+    function mudarAbaVisualEstrita(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        document.getElementById(pageId + "Page") ? document.getElementById(pageId + "Page").classList.add('active-page') : document.getElementById(pageId).classList.add('active-page');
+        document.querySelectorAll('.nav-item').forEach(b => { b.classList.remove('active'); if(b.getAttribute('data-page') === pageId) b.classList.add('active'); });
+    }
+
+    document.querySelectorAll('.sidebar .nav-item').forEach(btn => btn.addEventListener('click', () => mudarAbaVisualEstrita(btn.getAttribute('data-page'))));
+    
+    // Inicialização da aplicação chamando a API local assíncrona
+    inicializarApp();
 </script>
 </body>
 </html>
