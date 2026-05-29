@@ -1,0 +1,106 @@
+{
+  "semanas": [
+    { "numero": 1, "titulo": "Mapeamento de Base e Interpretação", "periodo": "Foco Estatístico Topo" },
+    { "numero": 2, "titulo": "Morfossintaxe e Conectivos", "periodo": "Avanço de Base" },
+    { "numero": 3, "titulo": "Sintaxe e Lógica das Proposições", "periodo": "Estruturas Lógicas" },
+    { "numero": 4, "titulo": "Teoria dos Conjuntos e Brasil Colonial", "periodo": "História e Conjuntos" },
+    { "numero": 5, "titulo": "Climatologia e Dinâmica de Massas", "periodo": "Geografia Geral" },
+    { "numero": 6, "titulo": "Geopolítica e Blocos Econômicos", "periodo": "Eixo Mundial" },
+    { "numero": 7, "titulo": "História do Espírito Santo", "periodo": "Regional ES" },
+    { "numero": 8, "titulo": "Geografia do Espírito Santo", "periodo": "Regional ES" },
+    { "numero": 9, "titulo": "Afinamento e Caderno de Erros", "periodo": "Revisão Ativa" },
+    { "numero": 10, "titulo": "Reta Final e Redação", "periodo": "Simulados Genuínos" }
+  ],
+  "conteudosPorDia": {
+    "1_segunda": {
+      "titulo": "Português — Interpretação e Inferências de Textos",
+      "materia": "portugues",
+      "assunto": "interpretacao",
+      "teoria": "<h3>📖 Compreensão, Interpretação e Inferências de Textos</h3><p>A IDECAN cobra de maneira massiva a precisão na leitura de fragmentos longos. O ponto central para o candidato é conseguir separar com nitidez as informações explícitas das conclusões implícitas.</p><h3>1. Compreensão Textual (O que está escrito)</h3><p>Refere-se à análise puramente literal e factual do texto. A informação está expressa de forma clara na superfície do parágrafo. Comandos clássicos da banca: <em>'Segundo o autor...', 'De acordo com o texto...', 'O fragmento afirma que...'</em>.</p><h3>2. Interpretação e Inferência (O que se deduz)</h3><p>Exige ir além do texto, extraindo conclusões lógicas amparadas firmemente pelos dados fornecidos (ler as subentrelinhas). A inferência legítima nunca extrapola ou inventa dados. Comandos típicos: <em>'Depreende-se do texto que...', 'Infere-se do trecho...', 'O texto permite concluir que...'</em>.</p>",
+      "questoes": [
+        { "id": "Q_PORT_01", "texto": "(IDECAN - 2024 - CBM-PA) 'A segurança pública contemporânea não opera isolada, mas integra bases digitais.' Infere-se do trecho que:", "alt": ["A) O policiamento tradicional faliu.", "B) A integração tecnológica apoia os modelos de segurança.", "C) O fator humano foi substituído por IA.", "D) A tecnologia gera atraso."], "correta": "B" },
+        { "id": "Q_PORT_02", "texto": "(IDECAN - 2024 - PM-CE) Diante do comando 'Depreende-se do texto', o candidato deve buscar:", "alt": ["A) Uma frase escrita de forma idêntica.", "B) Uma conclusão lógica implícita amparada pelos dados do texto.", "C) Uma opinião pessoal sobre o tema.", "D) Um erro de concordância gramatical."], "correta": "B" },
+        { "id": "Q_PORT_03", "texto": "(IDECAN - 2023 - AGU) Quando o autor afirma que 'os índices decaíram após a intervenção', conclui-se que:", "alt": ["A) A intervenção foi ineficaz.", "B) A intervenção gerou resultado positivo.", "C) Os índices aumentaram de forma anômala.", "D) Não houve modificação estrutural."], "correta": "B" },
+        { "id": "Q_PORT_04", "texto": "(IDECAN - 2023 - SEAS) Extrapolar os limites textuais de um fragmento significa:", alt: ["A) Compreender o sentido oculto.", "B) Inventar conclusões sem amparo lógico no que foi escrito.", "C) Copiar trechos literais da folha.", "D) Modificar as regras do edital."], "correta": "B" },
+        { "id": "Q_PORT_05", "texto": "(IDECAN - 2022 - PM-CE) A finalidade principal de um texto jornalístico do tipo editorial é:", "alt": ["A) Narrar crônicas ficcionais.", "B) Expressar a opinião oficial do veículo sobre um tema.", "C) Listar dados matemáticos puros.", "D) Apresentar instruções técnicas."], "correta": "B" },
+        { "id": "Q_PORT_06", "texto": "(IDECAN - 2022 - Politec) 'A viatura seguiu em comboio regulamentar.' A palavra sublinhada indica:", "alt": ["A) Isolamento absoluto.", "B) Grupo organizado em linha.", "C) Velocidade excessiva.", "D) Pane mecânica de motor."], "correta": "B" },
+        { "id": "Q_PORT_07", "texto": "(IDECAN - 2021 - Guarda) Indique a alternativa que expressa uma opinião do autor do texto:", "alt": ["A) A Polícia Militar foi fundada há séculos.", "B) O trabalho dos militares é a profissão mais bela.", "C) O batalhão localiza-se no centro.", "D) Houve escala extra no sábado."], "correta": "B" },
+        { "id": "Q_PORT_08", "texto": "(IDECAN - 2021 - PM-CE) O termo 'Depreende-se' diferencia-se de 'Segundo o texto' porque:", "alt": ["A) Exige cópia idêntica.", "B) Exige dedução analítica fundamentada.", "C) Avalia regras de acentuação.", "D) Trata-se de termo facultativo."], "correta": "B" },
+        { "id": "Q_PORT_09", "texto": "(IDECAN - 2020 - IBGE) O pressuposto de uma frase estruturada caracteriza-se por:", "alt": ["A) Uma mentira textual.", "B) Uma informação implícita indiscutível.", "C) O parágrafo conclusivo.", "D) A assinatura do autor."], "correta": "B" },
+        { "id": "Q_PORT_10", "texto": "(IDECAN - 2020 - Campo Grande) A leitura atenta de textos longos exige que o candidato:", "alt": ["A) Ignore os conectivos.", "B) Identifique os argumentos e a tese central.", "C) Leia apenas a introdução.", "D) Conte a quantidade de palavras."], "correta": "B" }
+      ]
+    },
+    "1_terca": {
+      "titulo": "RLM — Proposições Lógicas: Simples e Compostas",
+      "materia": "rlm",
+      "assunto": "proposicoes",
+      "teoria": "<h3>🔍 Proposições Lógicas e Sentenças</h3><p>O pilar inicial das provas de raciocínio lógico da IDECAN baseia-se na correta identificação e classificação de sentenças lógicas.</p><h3>1. Definição Estrita</h3><p>Proposição lógica é toda sentença declarativa (frase com sujeito, verbo e predicado) que expressa um pensamento de sentido completo e aceita, exclusivamente, um de dois valores lógicos: <strong>Verdadeiro (V) ou Falso (F)</strong>.</p><h3>2. O que NÃO é Proposição Lógica</h3><ul><li>Frases exclamativas, interrogativas, imperativas (ordens) e sentenças abertas (variáveis indefinidas).</li></ul>",
+      "questoes": [
+        { "id": "Q_RLM_01", "texto": "(IDECAN - 2024 - PM-CE) Assinale a frase que representa uma proposição lógica composta:", "alt": ["A) Cumpra a ordem militar!", "B) O soldado é combatente e o fogo queima.", "C) Que dia quente no batalhão!", "D) X + 2 = 5"], "correta": "B" },
+        { "id": "Q_RLM_02", "texto": "(IDECAN - 2024 - CBM-PA) Qual das seguintes sentenças NÃO se enquadra como proposição?", "alt": ["A) 5 é um número par.", "B) Paris é a capital francesa.", "C) Feche a janela do alojamento!", "D) A lua é o satélite da Terra."], "correta": "C" },
+        { "id": "Q_RLM_03", "texto": "(IDECAN - 2023 - SEAS) Sentenças abertas caracterizam-se na lógica por:", "alt": ["A) Ter conectivos e e ou.", "B) Possuir variáveis indefinidas que impedem valoração imediata.", "C) Serem sempre verdadeiras.", "D) Conter ordens expressas."], "correta": "B" },
+        { "id": "Q_RLM_04", "texto": "(IDECAN - 2023 - AGU) Uma proposição lógica simples possui estruturalmente:", "alt": ["A) Dois verbos e conectivos.", "B) Um único pensamento declarativo completo.", "C) Uma interrogação implícita.", "D) Uma exclamação factual."], "correta": "B" },
+        { "id": "Q_RLM_05", "texto": "(IDECAN - 2022 - Politec) Quantos valores lógicos distintos uma proposição pode assumir?", "alt": ["A) Apenas um.", "B) Rigorosamente dois.", "C) Três valores.", "D) Infinitos valores."], "correta": "B" },
+        { "id": "Q_RLM_06", "texto": "(IDECAN - 2022 - PM-CE) 'Soldado, realize vinte flexões!' é uma frase do tipo:", "alt": ["A) Declarativa pura.", "B) Imperativa direta.", "C) Sentença aberta.", "D) Interrogativa."], "correta: "B" },
+        { "id": "Q_RLM_07", "texto": "(IDECAN - 2021 - Guarda) O princípio da não-contradição afirma taxativamente que:", "alt": ["A) Uma proposição pode ser verdadeira e falsa simultaneamente.", "B) Uma proposição não pode ser verdadeira e falsa simultaneamente.", "C) Toda frase é falsa.", "D) A lógica não possui axiomas."], "correta": "B" },
+        { "id": "Q_RLM_08", "texto": "(IDECAN - 2021 - PM-CE) O princípio lógico do terceiro excluído dita que:", "alt": ["A) Há uma terceira valoração.", "B) Uma proposição ou é verdadeira ou é falsa, sem outra opção.", "C) Toda frase é aberta.", "D) Conectivos são nulos."], "correta": "B" },
+        { "id": "Q_RLM_09", "texto": "(IDECAN - 2020 - IBGE) 'Vitória é no ES ou Vila Velha é uma ilha costeira.' é uma proposição:", "alt": ["A) Simples.", "B) Composta por disjunção.", "C) Aberta algébrica.", "D) Imperativa militar."], "correta": "B" },
+        { "id": "Q_RLM_10", "texto": "(IDECAN - 2020 - Campo Grande) 'Que a farda seja honrada por todos!' é classificada como:", "alt": ["A) Proposição simples.", "B) Frase exclamativa/optativa (não é proposição).", "C) Proposição composta.", "D) Sentença aberta."], "correta": "B" }
+      ]
+    },
+    "1_quarta": {
+      "titulo": "Português — Morfossintaxe das Conjunções",
+      "materia": "portugues",
+      "assunto": "conjuncoes",
+      "teoria": "<h3>📌 Conjunções Coordenativas e Subordinativas Adverbiais</h3><p>As conjunções dominam as provas da banca. O foco é entender o valor semântico e as regras de substituição.</p><h3>1. As Conjunções Adversativas</h3><p>Indicam oposição direta ou quebra de expectativa entre as orações. Conectivos: <strong>mas, porém, contudo, todavia, entretanto, no entanto</strong>. <em>Regra:</em> Mantêm o verbo no modo <strong>Indicativo</strong>.</p><h3>2. As Conjunções Concessivas</h3><p>Transmitem oposição sob a ótica de uma ressalva ou frustração de um fato principal (ideia de 'apesar de'). Conectivos: <strong>embora, conquanto, ainda que, mesmo que, posto que</strong>. <em>Regra de Ouro:</em> Exigem o verbo no modo <strong>Subjuntivo</strong>.</p>",
+      "questoes": [
+        { "id": "Q_PORT_21", "texto": "(IDECAN - 2024 - CBM-PA) Em 'Os militares patrulharam a área de risco; contudo, a visibilidade estava prejudicada.', a conjunção destaca indica:", "alt": ["A) Conclusão", "B) Causa", "C) Concessão", "D) Adversidade"], "correta": "D" },
+        { "id": "Q_PORT_22", "texto": "(IDECAN - 2023 - AGU) 'Conquanto houvesse forte neblina, a operação continuou.' O conectivo sublinhado pode ser substituído por:", "alt": ["A) Portanto", "B) Porquanto", "C) Embora", "D) Contanto que"], "correta": "C" },
+        { "id": "Q_PORT_23", "texto": "(IDECAN - 2023 - PM-CE) 'Estudou muito, mas não obteve a vaga.' Substituindo por 'embora' sem alterar a correção:", "alt": ["A) Embora estudou muito, não obteve a vaga.", "B) Embora tenha estudado muito, não obteve a vaga.", "C) Mas embora estudou.", "D) Contudo obteve."], "correta": "B" },
+        { "id": "Q_PORT_24", "texto": "(IDECAN - 2022 - Politec) O conectivo 'porquanto' expressa gramaticalmente a ideia de:", "alt": ["A) Conclusão lógica.", "B) Explicação ou Causa.", "C) Oposição adversativa.", "D) Proporção temporal."], "correta": "B" },
+        { "id": "Q_PORT_25", "texto": "(IDECAN - 2022 - PM-CE) O conectivo 'conquanto' expressa gramaticalmente a ideia de:", "alt": ["A) Causa factual.", "B) Concessão subordinada.", "C) Tempo cronológico.", "D) Conclusão matemática."], "correta": "B" },
+        { "id": "Q_PORT_26", "texto": "(IDECAN - 2021 - Guarda) 'Portanto, a guarnição realizou o recuo.' O termo destacado classifica-se como:", "alt": ["A) Adversativo.", "B) Conclusivo.", "C) Explicativo.", "D) Condicional."], "correta": "B" },
+        { "id": "Q_PORT_27", "texto": "(IDECAN - 2021 - PM-CE) 'Visto que o suspeito evadiu-se, o cerco foi acionado.' O termo sublinhado indica:", "alt": ["A) Condição futura.", "B) Causa imediata.", "C) Concessão gramatical.", "D) Finalidade escancarada."], "correta": "B" },
+        { "id": "Q_PORT_28", "texto": "(IDECAN - 2020 - IBGE) Assinale a alternativa que NÃO apresenta uma conjunção adversativa:", "alt": ["A) Porém.", "B) Conquanto.", "C) Todavia.", "D) Entretanto."], "correta": "B" },
+        { "id": "Q_PORT_29", "texto": "(IDECAN - 2020 - Campo Grande) 'Caso chova forte, não haverá instrução de tiro.' O termo em destaque é:", "alt": ["A) Causal.", "B) Condicional.", "C) Concessivo.", "D) Final."], "correta": "B" },
+        { "id": "Q_PORT_30", "texto": "(IDECAN - 2019 - Natal) 'Para que a ordem retorne, as patrulhas agem.' O conectivo destacado indica:", "alt": ["A) Causa.", "B) Finalidade subordinada.", "C) Tempo decorrido.", "D) Proporção direta."], "correta": "B" }
+      ]
+    },
+    "1_quinta": {
+      "titulo": "RLM — Construção de Tabelas-Verdade",
+      "materia": "rlm",
+      "assunto": "tabelas",
+      "teoria": "<h3>📊 Tabelas-Verdade e Conectivos Lógicos</h3><p>Determinação de valores lógicos de proposições compostas com base nos conectivos principais.</p><h3>Regras de Ouro dos Conectivos:</h3><ul><li><strong>Conjunção (∧ - 'e'):</strong> Só é Verdadeira se AMBAS as proposições forem Verdadeiras.</li><li><strong>Disjunção Inclusiva (∨ - 'ou'):</strong> Só é Falsa se AMBAS as proposições forem Falsas.</li><li><strong>Condicional (→ - 'se... então'):</strong> Só é Falsa se a primeira for Verdadeira e a segunda for Falsa (Vera Fischer é Falsa!).</li></ul>",
+      "questoes": [
+        { "id": "Q_RLM_21", "texto": "(IDECAN - 2024 - PM-CE) Se P é verdadeiro e Q é falso, o valor lógico da condicional P → Q é:", "alt": ["A) Verdadeiro", "B) Falso", "C) Neutro", "D) Indeterminado"], "correta": "B" },
+        { "id": "Q_RLM_22", "texto": "(IDECAN - 2024 - CBM-PA) Na conjunção lógica (e), o resultado final só será verdadeiro quando:", "alt": ["A) Pelo menos uma proposição for V.", "B) Ambas as proposições forem V.", "C) Ambas as proposições forem F.", "D) A primeira proposição for F."], "correta": "B" },
+        { "id": "Q_RLM_23", "texto": "(IDECAN - 2023 - SEAS) Na disjunção inclusiva (ou), o resultado composto só será falso quando:", "alt": ["A) Ambas as proposições forem F.", "B) Ambas as proposições forem V.", "C) Uma proposição isolada for V.", "D) O conectivo 'se' for inserido."], "correta": "A" },
+        { "id": "Q_RLM_24", "texto": "(IDECAN - 2023 - AGU) Uma tautologia matemática ocorre estritamente quando a tabela-verdade resulta em:", "alt": ["A) Linhas totalmente Falsas.", "B) Linhas totalmente Verdadeiras.", "C) Valores lógicos mistos.", "D) Uma sentença aberta."], "correta": "B" },
+        { "id": "Q_RLM_25", "texto": "(IDECAN - 2022 - Politec) Uma contradição lógica ocorre estritamente quando a tabela-verdade resulta em:", "alt": ["A) Linhas totalmente Verdadeiras.", "B) Linhas totalmente Falsas.", "C) Proposições equivalentes.", "D) Uma condicional simples."], "correta": "B" },
+        { "id": "Q_RLM_26", "texto": "(IDECAN - 2022 - PM-CE) O conectivo da bicondicional (se e somente se) assume valor verdadeiro se:", "alt": ["A) Os valores lógicos das proposições forem opostos.", "B) Os valores lógicos das proposições forem idênticos (V e V / F e F).", "C) Apenas a primeira proposição for V.", "D) A segunda proposição for nula."], "correta": "B" },
+        { "id": "Q_RLM_27", "texto": "(IDECAN - 2021 - Guarda) Quantas linhas possui a tabela-verdade de uma proposição composta por 3 proposições simples?", "alt": ["A) 4 linhas.", "B) 8 linhas.", "C) 6 linhas.", "D) 16 linhas."], "correta": "B" },
+        { "id": "Q_RLM_28", "texto": "(IDECAN - 2021 - PM-CE) A fórmula estrutural para calcular a quantidade de linhas de uma tabela-verdade é:", "alt": ["A) 2 * n.", "B) 2 ^ n.", "C) n ^ 2.", "D) 3 ^ n."], "correta": "B" },
+        { "id": "Q_RLM_29", "texto": "(IDECAN - 2020 - IBGE) Se uma proposição condicional possui o seu antecedente Falso, o seu resultado será:", "alt": ["A) Sempre Falso.", "B) Sempre Verdadeiro (independente do consequente).", "C) Dependente direto da segunda frase.", "D) Uma contradição."], "correta": "B" },
+        { "id": "Q_RLM_30", "texto": "(IDECAN - 2020 - Campo Grande) Na disjunção exclusiva (ou... ou), o resultado composto assume V quando:", "alt": ["A) Os valores lógicos das partes forem iguais.", "B) Os valores lógicos das partes forem distintos (um V e um F).", "C) Ambas as partes forem Falsas.", "D) Ambas as partes forem Verdadeiras."], "correta": "B" }
+      ]
+    },
+    "1_sexta": {
+      "titulo": "História — Brasil Colonial: Economia e Sociedade",
+      "materia": "historia",
+      "assunto": "colonial",
+      "teoria": "<h3>🏭 O Sistema de Plantation Colonial</h3><p>A colonização da América Portuguesa (1500-1822) estruturou-se sob a lógica mercantilista de exploração agroexportadora.</p><h3>A Transição da Mão de Obra</h3><p>A substituição do indígena pelo escravizado africano no Nordeste açucareiro no final do século XVI decorreu de fatores de mercado: a **alta lucratividade do tráfico negreiro transatlântico** para a Coroa portuguesa e a **maior imunidade biológica** dos africanos contra as doenças epidemiológicas europeias.</p>",
+      "questoes": [
+        { "id": "Q_HIST_01", "texto": "(IDECAN - 2024 - PM-CE) A transição do trabalho indígena para o predomínio da escravidão africana no Nordeste açucareiro explica-se por:", "alt": ["A) Decretos papais imediatos.", "B) Lucratividade do tráfico transatlântico e maior imunidade biológica dos africanos.", "C) Extermínio total dos nativos.", "D) Opção cultural dos jesuítas."], "correta": "B" },
+        { "id": "Q_HIST_02", "texto": "(IDECAN - 2024 - AGU) O chamado Pacto Colonial impunha à colônia a obrigação rígida de:", "alt": ["A) Comercializar livremente com nações vizinhas.", "B) Comercializar com exclusividade absoluta com a metrópole (Portugal).", "C) Exportar mercadorias apenas para portos ingleses.", "D) Produzir manufaturas industriais locais."], "correta": "B" },
+        { "id": "Q_HIST_03", "texto": "(IDECAN - 2023 - SEAS) A base da economia do Nordeste açucareiro era o plantation, composto estruturalmente por:", "alt": ["A) Minifúndio e trabalho assalariado regulamentado.", "B) Latifúndio, monocultura agroexportadora e escravidão.", "C) Pequena propriedade familiar voltada à subsistência.", "D) Indústria extrativista mineral de base."], "correta": "B" },
+        { "id": "Q_HIST_04", "texto": "(IDECAN - 2023 - CBM-PA) As chamadas revoltas nativistas ocorridas na Colônia caracterizavam-se por:", "alt": ["A) Exigir a independência política imediata do Brasil.", "B) Reclamar de abusos fiscais ou comerciais locais, sem romper com Portugal.", "C) Apoiar a abolição sistêmica da escravidão.", "D) Defender irrestritamente o poder econômico dos jesuítas."], "correta": "B" },
+        { "id": "Q_HIST_05", "texto": "(IDECAN - 2022 - PM-CE) A histórica Revolta de Beckman eclodiu em qual província colonial?", "alt": ["A) Província da Bahia.", "B) Província do Maranhão.", "C) Província de Minas Gerais.", "D) Província de Pernambuco."], "correta": "B" },
+        { "id": "Q_HIST_06", "texto": "(IDECAN - 2022 - Politec) A Guerra dos Emboabas envolveu paulistas e forasteiros armados pelo controle de:", "alt": ["A) Engenhos açucareiros do litoral.", "B) Lavras de ouro descobertas na região de Minas Gerais.", "C) Rotas comerciais das drogas do sertão.", "D) Plantações de algodão do Norte."], "correta": "B" },
+        { "id": "Q_HIST_07", "texto": "(IDECAN - 2021 - Guarda) O líder Felipe dos Santos chefiou uma revolta armada em Vila Rica (1720) motivada por:", "alt": ["A) Oposição ao fim do tráfico negreiro.", "B) Criação das Casas de Fundição para fiscalização tributária do ouro.", "C) Tentativa de conter invasões navais francesas.", "D) Conflitos de fronteira com jesuítas."], "correta": "B" },
+        { "id": "Q_HIST_08", "texto": "(IDECAN - 2021 - PM-CE) Qual imposto colonial cobrava a taxa fixa de 20% sobre o ouro extraído?", "alt": ["A) A Derrama.", "B) O Quinto.", "C) A Capitação.", "D) O Dízimo Real."], "correta": "B" },
+        { "id": "Q_HIST_09", "texto": "(IDECAN - 2020 - IBGE) O Governo-Geral foi instituído pela Coroa portuguesa em 1548 com o objetivo de:", "alt": ["A) Decretar o fim da preação indígena.", "B) Centralizar a administração colonial e conceder apoio às capitanias.", "C) Conter as frotas navais holandesas no Sudeste.", "D) Assinar as linhas do Tratado de Tordesilhas."], "correta": "B" },
+        { "id": "Q_HIST_10", "texto": "(IDECAN - 2020 - Campo Grande) Quem ocupou o cargo de primeiro Governador-Geral da América Portuguesa?", "alt": ["A) Mem de Sá.", "B) Tomé de Sousa.", "C) Duarte da Costa.", "D) Martim Afonso de Sousa."], "correta": "B" }
+      ]
+    }
+  }
+}
