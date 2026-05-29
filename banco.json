@@ -1,14 +1,14 @@
 {
     "semanas": [
         { "numero": 1, "titulo": "Português: Interpretação e Conjunções", "periodo": "02/06 - 08/06" },
-        { "numero": 2, "titulo": "RLM: Proposições e Tabelas-Verdade", "periodo": "09/06 - 15/06" },
+        { "numero": 2, "titulo": "RLM: Proposições Lógicas", "periodo": "09/06 - 15/06" },
         { "numero": 3, "titulo": "História: Brasil Colonial e Império", "periodo": "16/06 - 22/06" },
         { "numero": 4, "titulo": "Geografia: Climas e Massas de Ar", "periodo": "23/06 - 29/06" }
     ],
     "conteudos": {
         "1_segunda": {
-            "titulo": "Interpretação de Textos - Ideia Central e Inferências",
-            "teoria": "<h3>📖 Ideia Central do Texto</h3><p>A IDECAN cobra muito a capacidade de identificar o tema principal e a tese defendida pelo autor. Pergunte-se: 'Se eu tirar essa frase, o texto perde o sentido?'</p><h4>🎯 O que mais cai:</h4><ul><li>Qual é o assunto principal do texto?</li><li>Qual a opinião do autor sobre o tema?</li><li>Qual frase resume o conteúdo do parágrafo?</li></ul><h4>🔍 Inferências</h4><p>Inferência é o que está IMPLÍCITO no texto. A banca adora 'Depreende-se do texto que...'</p>",
+            "titulo": "Interpretação de Textos - Ideia Central",
+            "teoria": "<h3>📖 Ideia Central do Texto</h3><p>A IDECAN cobra muito a capacidade de identificar o tema principal e a tese defendida pelo autor.</p><h4>🎯 O que mais cai:</h4><ul><li>Qual é o assunto principal do texto?</li><li>Qual a opinião do autor sobre o tema?</li><li>Qual frase resume o conteúdo do parágrafo?</li></ul><h4>🔍 Inferências</h4><p>Inferência é o que está IMPLÍCITO no texto. A banca adora 'Depreende-se do texto que...'</p>",
             "questoes": [
                 { "id": "q1", "texto": "(IDECAN) 'A violência urbana não é um fenômeno novo, mas suas formas de manifestação se alteraram.' Depreende-se do texto que:", "alt": ["A) A violência urbana é um fenômeno recente", "B) A violência mudou apenas de aparência", "C) A violência deixou de existir", "D) A violência é um problema isolado"], "correta": "B" },
                 { "id": "q2", "texto": "(IDECAN) 'O trabalho do policial militar vai além do uso da força; exige preparo emocional.' A ideia central do trecho é:", "alt": ["A) O policial deve usar força", "B) A preparação emocional é dispensável", "C) A função policial envolve habilidades psicológicas", "D) A força é o único recurso válido"], "correta": "C" }
@@ -16,22 +16,24 @@
         },
         "1_terca": {
             "titulo": "Conjunções - Valores Semânticos",
-            "teoria": "<h3>🔗 Conjunções: O Coração da Prova</h3><h4>Adversativas (oposição):</h4><p>mas, porém, contudo, todavia, entretanto, no entanto</p><h4>Concessivas (ressalva):</h4><p>embora, conquanto, ainda que, mesmo que, posto que</p><h4>Causais (motivo):</h4><p>porque, visto que, já que, uma vez que, porquanto</p><h4>Conclusivas (consequência):</h4><p>portanto, logo, assim, por conseguinte</p>",
+            "teoria": "<h3>🔗 Conjunções: O Coração da Prova da IDECAN</h3><h4>Adversativas (oposição):</h4><p>mas, porém, contudo, todavia, entretanto, no entanto</p><h4>Concessivas (ressalva):</h4><p>embora, conquanto, ainda que, mesmo que, posto que</p><h4>Causais (motivo):</h4><p>porque, visto que, já que, uma vez que, porquanto</p><h4>Conclusivas (consequência):</h4><p>portanto, logo, assim, por conseguinte</p>",
             "questoes": [
                 { "id": "q3", "texto": "(IDECAN) Em 'Os candidatos estudaram bastante; todavia, não obtiveram êxito.', a conjunção expressa:", "alt": ["A) Causa", "B) Concessão", "C) Adversidade", "D) Conclusão"], "correta": "C" },
-                { "id": "q4", "texto": "(IDECAN) 'Embora houvesse risco, a equipe avançou.' Se trocássemos 'Embora' por 'Apesar de', haveria:", "alt": ["A) Mudança de sentido", "B) Erro de regência", "C) Correção e manutenção do sentido", "D) Quebra da norma culta"], "correta": "C" }
+                { "id": "q4", "texto": "(IDECAN) 'Embora houvesse risco, a equipe avançou.' Se trocássemos 'Embora' por 'Apesar de', haveria:", "alt": ["A) Mudança de sentido", "B) Erro de regência", "C) Correção e manutenção do sentido", "D) Quebra da norma culta"], "correta": "C" },
+                { "id": "q5", "texto": "(IDECAN) 'Porquanto o trânsito estava ruim, chegamos atrasados.' A palavra 'porquanto' equivale a:", "alt": ["A) Portanto", "B) Porém", "C) Porque", "D) Contudo"], "correta": "C" }
             ]
         },
         "2_segunda": {
             "titulo": "Proposições Lógicas - Conceito e Estrutura",
-            "teoria": "<h3>🔍 O que é uma proposição lógica?</h3><p>Proposição é uma sentença declarativa que pode ser Verdadeira (V) ou Falsa (F).</p><h4>❌ NÃO são proposições:</h4><ul><li>Frases exclamativas ('Que dia bonito!')</li><li>Frases interrogativas ('Você estudou?')</li><li>Frases imperativas ('Pare de falar!')</li><li>Sentenças abertas ('X + 5 = 10')</li></ul>",
+            "teoria": "<h3>🔍 O que é uma proposição lógica?</h3><p>Proposição é uma sentença declarativa que pode ser Verdadeira (V) ou Falsa (F).</p><h4>❌ NÃO são proposições:</h4><ul><li>Frases exclamativas ('Que dia bonito!')</li><li>Frases interrogativas ('Você estudou?')</li><li>Frases imperativas ('Pare de falar!')</li><li>Sentenças abertas ('X + 5 = 10')</li></ul><h4>📌 Exemplos:</h4><p>'O sol é quente' → proposição<br>'Estude e passe' → proposição composta</p>",
             "questoes": [
-                { "id": "r1", "texto": "(IDECAN) Assinale a alternativa que apresenta uma proposição lógica composta:", "alt": ["A) Soldado, cumpra a missão!", "B) O sol é quente e a lua é fria.", "C) Que dia bonito!", "D) X + 5 = 10"], "correta": "B" }
+                { "id": "r1", "texto": "(IDECAN) Assinale a alternativa que apresenta uma proposição lógica composta:", "alt": ["A) Soldado, cumpra a missão!", "B) O sol é quente e a lua é fria.", "C) Que dia bonito!", "D) X + 5 = 10"], "correta": "B" },
+                { "id": "r2", "texto": "(IDECAN) Se p é verdadeiro e q é falso, qual o valor lógico de p → q?", "alt": ["A) Verdadeiro", "B) Falso", "C) Indeterminado", "D) Contraditório"], "correta": "B" }
             ]
         },
         "3_segunda": {
             "titulo": "Brasil Colonial - Plantation e Economia Açucareira",
-            "teoria": "<h3>🏭 O Sistema de Plantation</h3><ul><li><strong>Latifúndio</strong> - grandes extensões de terra</li><li><strong>Monocultura</strong> - produção de um único produto (açúcar)</li><li><strong>Mão de obra escrava</strong> - primeiro indígena, depois africana</li><li><strong>Produção para exportação</strong> - Pacto Colonial</li></ul><p>A transição para mão de obra africana ocorreu devido à maior resistência às doenças europeias e lucro do tráfico negreiro.</p>",
+            "teoria": "<h3>🏭 O Sistema de Plantation no Brasil Colonial</h3><ul><li><strong>Latifúndio</strong> - grandes extensões de terra</li><li><strong>Monocultura</strong> - produção de um único produto (açúcar)</li><li><strong>Mão de obra escrava</strong> - primeiro indígena, depois africana</li><li><strong>Produção para exportação</strong> - Pacto Colonial</li></ul><p>A transição para mão de obra africana ocorreu devido à maior resistência dos africanos às doenças europeias e à alta lucratividade do tráfico negreiro.</p>",
             "questoes": [
                 { "id": "h1", "texto": "(IDECAN) A transição para o predomínio da mão de obra africana no Nordeste açucareiro ocorreu devido à:", "alt": ["A) Imposição da Coroa portuguesa", "B) Maior resistência dos africanos às doenças e lucro do tráfico", "C) Extermínio total dos indígenas", "D) Vontade dos senhores de engenho"], "correta": "B" },
                 { "id": "h2", "texto": "(IDECAN) O sistema de plantation no Brasil Colonial caracterizava-se por:", "alt": ["A) Pequena propriedade e trabalho assalariado", "B) Latifúndio, monocultura e escravidão", "C) Policultura e mercado interno", "D) Propriedade coletiva e subsistência"], "correta": "B" }
@@ -39,9 +41,10 @@
         },
         "4_segunda": {
             "titulo": "Massas de Ar que Atuam no Brasil",
-            "teoria": "<h3>🌬️ As 5 Massas de Ar</h3><ul><li><strong>mEc (Equatorial Continental)</strong> - quente e úmida (Amazônia)</li><li><strong>mEa (Equatorial Atlântica)</strong> - quente e úmida (litoral Norte/Nordeste)</li><li><strong>mTa (Tropical Atlântica)</strong> - quente e úmida (litoral brasileiro)</li><li><strong>mTc (Tropical Continental)</strong> - quente e seca (Centro-Oeste)</li><li><strong>mPa (Polar Atlântica)</strong> - fria e úmida (Sul, causa geadas e friagem)</li></ul>",
+            "teoria": "<h3>🌬️ As 5 Massas de Ar que influenciam o clima brasileiro</h3><ul><li><strong>mEc (Equatorial Continental)</strong> - quente e úmida (Amazônia)</li><li><strong>mEa (Equatorial Atlântica)</strong> - quente e úmida (litoral Norte/Nordeste)</li><li><strong>mTa (Tropical Atlântica)</strong> - quente e úmida (litoral brasileiro)</li><li><strong>mTc (Tropical Continental)</strong> - quente e seca (Centro-Oeste)</li><li><strong>mPa (Polar Atlântica)</strong> - fria e úmida (Sul no inverno, causa geadas e friagem)</li></ul><h4>🎯 Fenômeno da Friagem:</h4><p>É a queda brusca de temperatura na Amazônia Ocidental causada pelo avanço da mPa no inverno.</p>",
             "questoes": [
-                { "id": "g1", "texto": "(IDECAN) A massa de ar fria e úmida que avança pelo interior do Brasil no inverno, provocando a friagem na Amazônia, é a:", "alt": ["A) mEc", "B) mTa", "C) mPa", "D) mTc"], "correta": "C" }
+                { "id": "g1", "texto": "(IDECAN) A massa de ar fria e úmida que avança pelo interior do Brasil no inverno, provocando a friagem na Amazônia, é a:", "alt": ["A) mEc", "B) mTa", "C) mPa", "D) mTc"], "correta": "C" },
+                { "id": "g2", "texto": "(IDECAN) O clima predominante no Sertão nordestino é o:", "alt": ["A) Equatorial", "B) Tropical semiárido", "C) Subtropical", "D) Tropical de altitude"], "correta": "B" }
             ]
         }
     },
@@ -52,6 +55,7 @@
         { "id": "q4", "materia": "portugues", "texto": "(IDECAN) 'Embora houvesse risco, a equipe avançou.' A conjunção pode ser substituída por:", "alt": ["A) Portanto", "B) Conquanto", "C) Porque", "D) Logo"], "correta": "B" },
         { "id": "r1", "materia": "rlm", "texto": "(IDECAN) Assinale a alternativa que apresenta uma proposição lógica composta:", "alt": ["A) Soldado, cumpra a missão!", "B) O sol é quente e a lua é fria.", "C) Que dia bonito!", "D) X + 5 = 10"], "correta": "B" },
         { "id": "h1", "materia": "historia", "texto": "(IDECAN) A transição para o predomínio da mão de obra africana no Nordeste açucareiro ocorreu devido à:", "alt": ["A) Imposição da Coroa portuguesa", "B) Maior resistência dos africanos às doenças e lucro do tráfico", "C) Extermínio total dos indígenas", "D) Vontade dos senhores de engenho"], "correta": "B" },
-        { "id": "g1", "materia": "geografia", "texto": "(IDECAN) A massa de ar que atua na região amazônica, quente e úmida, é a:", "alt": ["A) mTa", "B) mPa", "C) mEc", "D) mTc"], "correta": "C" }
+        { "id": "g1", "materia": "geografia", "texto": "(IDECAN) A massa de ar que atua na região amazônica, quente e úmida, é a:", "alt": ["A) mTa", "B) mPa", "C) mEc", "D) mTc"], "correta": "C" },
+        { "id": "g2", "materia": "geografia", "texto": "(IDECAN) O clima predominante no Sertão nordestino é o:", "alt": ["A) Equatorial", "B) Tropical semiárido", "C) Subtropical", "D) Tropical de altitude"], "correta": "B" }
     ]
 }
