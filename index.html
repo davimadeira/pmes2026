@@ -195,31 +195,18 @@
     </div>
 </div>
 
-<script>
-    // Carregamento dinâmico do JSON simulado para evitar travar limites de memória
-    let bancoDados = null;
-    
-    // Função assíncrona que lê o banco separado sem congelar o navegador
-    async function inicializarApp() {
-        try {
-            const resposta = await fetch('banco.json');
-            bancoDados = await resposta.json();
-            renderSemanas();
-            renderTAF();
-        } catch (erro) {
-            console.error("Aguardando arquivo banco.json estar criado na mesma pasta.", erro);
-        }
-    }
+<script src="banco.js"></script>
 
-    let progresso = JSON.parse(localStorage.getItem("pmes_v9_save")) || { semanasCompletas: [], diasCompletos: [], acertos: {} };
-    let tafChecklist = JSON.parse(localStorage.getItem("pmes_v9_taf")) || {};
+<script>
+    let progresso = JSON.parse(localStorage.getItem("pmes_v10_save")) || { semanasCompletas: [], diasCompletos: [], acertos: {} };
+    let tafChecklist = JSON.parse(localStorage.getItem("pmes_v10_taf")) || {};
     let origemNavegacao = 'cronograma';
     let semanaAtivaGlobal = 1;
 
     function renderSemanas() {
         const grid = document.getElementById("weeksGrid");
-        if(!grid || !bancoDados) return;
-        grid.innerHTML = bancoDados.semanas.map(s => {
+        if(!grid) return;
+        grid.innerHTML = semanas.map(s => {
             const completed = progresso.semanasCompletas.includes(s.numero);
             return `
                 <div class="week-card" onclick="abrirSemana(${s.numero})">
@@ -235,7 +222,7 @@
 
     window.abrirSemana = function(num) {
         semanaAtivaGlobal = num;
-        const sem = bancoDados.semanas.find(s => s.numero === num);
+        const sem = semanas.find(s => s.numero === num);
         document.getElementById("selectedWeekTitle").innerText = `📌 Semana ${num} — ${sem.titulo}`;
         
         const diasSemana = [
@@ -250,7 +237,7 @@
         const daysList = document.getElementById("daysList");
         daysList.innerHTML = diasSemana.map((d, idx) => {
             const contentKey = `${num}_${d.key}`;
-            const alvo = bancoDados.conteudosPorDia[contentKey];
+            const alvo = conteudosPorDia[contentKey];
             const concluido = progresso.diasCompletos.includes(contentKey);
 
             return `
@@ -281,7 +268,7 @@
     }
 
     function exibirFichaTeoriaEQuestoes(contentKey, numSemana = null) {
-        const alvo = bancoDados.conteudosPorDia[contentKey];
+        const alvo = conteudosPorDia[contentKey];
         if(!alvo) {
             alert("⏳ Tópico planejado e mapeado na esteira linear das próximas semanas do cronograma.");
             return;
@@ -292,7 +279,7 @@
 
         const areaQ = document.getElementById("questoesAreaTeoria");
         if(alvo.questoes && alvo.questoes.length > 0) {
-            areaQ.innerHTML = `<h3 style="margin-bottom:15px; color:#1E40AF;">⚔️ Exercícios de Fixação Obrigatórios (${alvo.questoes.length} Questões)</h3>` + 
+            areaQ.innerHTML = `<h3 style="margin-bottom:15px; color:#1E40AF;">⚔️ Exercícios de Fixação Obrigatórios (10 Questões)</h3>` + 
             alvo.questoes.map((q, idx) => {
                 const uid = `teoria_${contentKey}_${idx}`;
                 return renderizarEstruturaCardQuestao(q, uid, contentKey, idx);
@@ -303,7 +290,7 @@
 
         document.getElementById("btnConcluirDiaAtivo").onclick = () => {
             if(!progresso.diasCompletos.includes(contentKey)) progresso.diasCompletos.push(contentKey);
-            localStorage.setItem("pmes_v9_save", JSON.stringify(progresso));
+            localStorage.setItem("pmes_v10_save", JSON.stringify(progresso));
             voltarParaFluxoOrigem();
         };
 
@@ -352,7 +339,7 @@
             msg.innerHTML = `<span style="color:#EF4444;">❌ Incorreto. Gabarito Oficial: Letra ${correta}.</span>`;
             progresso.acertos[hash] = false;
         }
-        localStorage.setItem("pmes_v9_save", JSON.stringify(progresso));
+        localStorage.setItem("pmes_v10_save", JSON.stringify(progresso));
     }
 
     window.voltarParaFluxoOrigem = function() {
@@ -378,7 +365,7 @@
         const container = document.getElementById("containerTopicosLinhas");
         document.getElementById("materiaFiltroTitulo").innerText = `Tópicos de ${materiaKey.toUpperCase()}`;
 
-        const filtrados = Object.entries(bancoDados.conteudosPorDia).filter(([k, v]) => v.materia === materiaKey);
+        const filtrados = Object.entries(conteudosPorDia).filter(([k, v]) => v.materia === materiaKey);
         container.innerHTML = filtrados.map(([k, v]) => `
             <div class="topico-linha" onclick="origemNavegacao='conteudo'; exibirFichaTeoriaEQuestoes('${k}')">
                 <span>${v.titulo}</span>
@@ -395,7 +382,7 @@
     }
 
     const mapaAssuntosFiltro = {
-        portugues: [{ val: "interpretacao", txt: "Interpretação de Texto" }, { val: "conjuncoes", txt: "Conjunções" }, { val: "reescrita", txt: "Reescrita de Frases" }],
+        portugues: [{ val: "interpretacao", txt: "Interpretação de Texto" }, { val: "conjuncoes", txt: "Conjunções" }],
         rlm: [{ val: "proposicoes", txt: "Proposições Lógicas" }, { val: "tabelas", txt: "Tabelas-Verdade" }],
         historia: [{ val: "colonial", txt: "Brasil Colonial" }],
         geografia: [{ val: "climas", txt: "Climatologia" }]
@@ -420,8 +407,8 @@
         const container = document.getElementById("questoesList");
 
         let pool = [];
-        Object.keys(bancoDados.conteudosPorDia).forEach(k => {
-            const obj = bancoDados.conteudosPorDia[k];
+        Object.keys(conteudosPorDia).forEach(k => {
+            const obj = conteudosPorDia[k];
             if((mat === "todas" || obj.materia === mat) && (ass === "todos" || obj.assunto === ass)) {
                 obj.questoes.forEach((q, idx) => pool.push({ ...q, contentKey: k, idx: idx, materia: obj.materia }));
             }
@@ -440,20 +427,15 @@
     }
 
     window.atualizarDashboardMétricas = function() {
-        if(!bancoDados) return;
         let totalAcertos = 0; let totalBanco = 0;
-        let mapaDisciplinas = { portugues: { acertos: 0, totais: 0 }, rlm: { acertos: 0, totais: 0 }, historia: { acertos: 0, totais: 0 }, geografia: { acertos: 0, totais: 0 } };
+        let mapaDisciplinas = { portugues: { acertos: 0, totais: 0 }, rlm: { acertos: 0, totais: 0 }, historia: { acertos: 0, totais: 0 }, geography: { acertos: 0, totais: 0 } };
 
-        Object.keys(bancoDados.conteudosPorDia).forEach(k => {
-            const obj = bancoDados.conteudosPorDia[k];
+        Object.keys(conteudosPorDia).forEach(k => {
+            const obj = conteudosPorDia[k];
             totalBanco += obj.questoes.length;
-            mapaDisciplinas[obj.materia].totais += obj.questoes.length;
             obj.questoes.forEach((q, idx) => {
                 const ac = progresso.acertos[`${k}_${idx}`];
-                if(ac !== undefined && ac) {
-                    totalAcertos++;
-                    mapaDisciplinas[obj.materia].acertos++;
-                }
+                if(ac !== undefined && ac) totalAcertos++;
             });
         });
 
@@ -490,8 +472,8 @@
             </div>
         `).join("");
     }
-    window.toggleCheckTAF = function(t) { tafChecklist[t] = !tafChecklist[t]; localStorage.setItem("pmes_v8_taf", JSON.stringify(tafChecklist)); renderTAF(); }
-    document.getElementById("resetTAFBtn").onclick = () => { tafChecklist = {}; localStorage.setItem("pmes_v8_taf", JSON.stringify(tafChecklist)); renderTAF(); }
+    window.toggleCheckTAF = function(t) { tafChecklist[t] = !tafChecklist[t]; localStorage.setItem("pmes_v10_taf", JSON.stringify(tafChecklist)); renderTAF(); }
+    document.getElementById("resetTAFBtn").onclick = () => { tafChecklist = {}; localStorage.setItem("pmes_v10_taf", JSON.stringify(tafChecklist)); renderTAF(); }
 
     window.voltarParaSemanas = function() { document.getElementById("weeksSection").style.display = "block"; document.getElementById("daysContainer").style.display = "none"; renderSemanas(); }
     function mudarAbaVisualEstrita(pageId) {
@@ -500,10 +482,14 @@
         document.querySelectorAll('.nav-item').forEach(b => { b.classList.remove('active'); if(b.getAttribute('data-page') === pageId) b.classList.add('active'); });
     }
 
-    document.querySelectorAll('.sidebar .nav-item').forEach(btn => btn.addEventListener('click', () => mudarAbaVisualEstrita(btn.getAttribute('data-page'))));
+    document.querySelectorAll('.sidebar .nav-item').forEach(btn => btn.addEventListener('click', () => {
+        const pageId = btn.getAttribute('data-page');
+        mudarAbaVisualEstrita(pageId);
+        if(pageId === 'dashboard') atualizarDashboardMétricas();
+        if(pageId === 'taf') renderTAF();
+    }));
     
-    // Inicialização da aplicação chamando a API local assíncrona
-    inicializarApp();
+    renderSemanas();
 </script>
 </body>
 </html>
